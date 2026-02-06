@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Agents | Mega Realty — Find a Real Estate Agent in Pennsylvania</title>
+<meta name="description" content="Meet the Mega Realty team. Find a licensed real estate agent in Philadelphia and across Pennsylvania for buying, selling, or leasing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .page-hero{position:relative;padding:180px 48px 100px;background:var(--black);overflow:hidden;text-align:center}
+  .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(111,30,28,0.7) 0%,rgba(26,25,23,0.9) 100%),url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1920&q=80') center/cover no-repeat}
+  .page-hero-content{position:relative;z-index:2;max-width:700px;margin:0 auto}
+  .page-hero h1{font-family:var(--font-heading);font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--white);margin-bottom:16px}
+  .page-hero p{font-size:18px;color:rgba(255,255,255,0.65);line-height:1.6}
+
+  .agents-section{padding:80px 48px;background:var(--white)}
+  .agents-inner{max-width:1200px;margin:0 auto}
+
+  .agents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:64px}
+
+  .agent-card{
+    background:var(--white);border-radius:16px;border:1px solid var(--gray-200);
+    overflow:hidden;transition:all 0.3s ease;text-align:center;
+  }
+  .agent-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.07);border-color:transparent}
+
+  .agent-photo-wrap{
+    height:280px;background:var(--off-white);overflow:hidden;position:relative;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .agent-photo-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+  .agent-card:hover .agent-photo-wrap img{transform:scale(1.05)}
+
+  .agent-initials{
+    width:120px;height:120px;background:linear-gradient(135deg,var(--burgundy),var(--burgundy-light));
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-heading);font-size:42px;font-weight:700;color:var(--white);
+  }
+
+  .agent-info{padding:24px}
+  .agent-info h3{font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--gray-800);margin-bottom:4px}
+  .agent-role{font-size:14px;color:var(--burgundy);font-weight:500;margin-bottom:8px}
+  .agent-area{font-size:13px;color:var(--gray-500);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:6px}
+  .agent-contact{display:flex;justify-content:center;gap:12px}
+  .agent-contact a{
+    padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;
+    text-decoration:none;transition:all 0.2s ease;
+  }
+  .agent-contact .agent-phone{background:var(--off-white);color:var(--gray-700);border:1px solid var(--gray-200)}
+  .agent-contact .agent-phone:hover{background:var(--burgundy);color:var(--white);border-color:var(--burgundy)}
+  .agent-contact .agent-email{background:var(--burgundy);color:var(--white)}
+  .agent-contact .agent-email:hover{background:var(--burgundy-dark)}
+
+  /* Join card */
+  .agent-card.join-card{border:2px dashed var(--gray-300);background:var(--off-white)}
+  .agent-card.join-card:hover{border-color:var(--green);background:var(--white)}
+  .agent-card.join-card .agent-photo-wrap{background:transparent}
+
+  .join-icon{
+    width:120px;height:120px;background:rgba(138,199,17,0.1);border:2px dashed var(--green);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+  }
+
+  .join-card .agent-info h3{color:var(--green-dark)}
+  .join-card .agent-role{color:var(--gray-500)}
+
+  .join-btn{
+    display:inline-flex;align-items:center;gap:6px;padding:10px 24px;
+    background:var(--green);color:var(--black);border-radius:8px;
+    font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s ease;
+  }
+  .join-btn:hover{background:var(--green-dark);transform:translateY(-2px)}
+
+  @media(max-width:1024px){.agents-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:768px){
+    .page-hero{padding:140px 24px 72px}
+    .agents-section{padding:60px 24px}
+    .agents-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="#" data-dropdown>Buying <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="buyer-representation.html">Buyer Representation</a><a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a><a href="moving-guide.html">Moving Guide</a><a href="mortgage-calculators.html">Mortgage Calculators</a></div></li>
+    <li><a href="#" data-dropdown>Selling <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="selling-your-home.html">Selling Your Home</a><a href="value-of-sellers-agent.html">Value of a Seller's Agent</a><a href="virtual-market-analysis.html">Virtual Market Analysis</a><a href="moving-checklist.html">Moving Checklist</a></div></li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>Our Agents</h1>
+    <p>Meet the talented professionals behind Mega Realty. Our agents serve clients across all of Pennsylvania.</p>
+  </div>
+</section>
+
+<section class="agents-section">
+  <div class="agents-inner">
+    <div class="agents-grid">
+
+      <!-- AGENT 1 - Broker -->
+      <div class="agent-card reveal">
+        <div class="agent-photo-wrap">
+          <div class="agent-initials">S</div>
+        </div>
+        <div class="agent-info">
+          <h3>Sunny</h3>
+          <div class="agent-role">Broker / Owner</div>
+          <div class="agent-area">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Greater Philadelphia Area
+          </div>
+          <div class="agent-contact">
+            <a href="tel:2159470575" class="agent-phone">Call</a>
+            <a href="mailto:contact@mymegarealty.com" class="agent-email">Email</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER AGENTS — Replace with real agents as team grows -->
+      <!-- To add a new agent, copy an agent-card block and update the name, role, photo, area, and contact info -->
+
+      <!-- JOIN CARD 1 -->
+      <div class="agent-card join-card reveal">
+        <div class="agent-photo-wrap">
+          <div class="join-icon">
+            <svg width="48" height="48" fill="none" stroke="var(--green)" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="agent-info">
+          <h3>Your Name Here</h3>
+          <div class="agent-role">Join our growing team</div>
+          <div class="agent-area">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Anywhere in Pennsylvania
+          </div>
+          <a href="careers.html" class="join-btn">Join Mega Realty →</a>
+        </div>
+      </div>
+
+      <!-- JOIN CARD 2 -->
+      <div class="agent-card join-card reveal">
+        <div class="agent-photo-wrap">
+          <div class="join-icon">
+            <svg width="48" height="48" fill="none" stroke="var(--green)" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="agent-info">
+          <h3>100% Commission</h3>
+          <div class="agent-role">$100/mo + $550/transaction</div>
+          <div class="agent-area">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            First year free
+          </div>
+          <a href="careers.html" class="join-btn">Learn More →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <h2>Want to See Your Name Here?</h2>
+  <p>Join Mega Realty and keep 100% of your commission. First year free.</p>
+  <div class="cta-buttons">
+    <a href="careers.html" class="btn-primary">Join Our Team →</a>
+    <a href="faq.html" class="btn-secondary">Read the FAQ →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a><p>Philadelphia-based real estate firm serving all of Pennsylvania — buying, selling, leasing, and property management.</p></div>
+    <div class="footer-col"><h4>Services</h4><a href="#">Buying</a><a href="#">Selling</a><a href="listings.html">Listings</a><a href="property-management.html">Property Management</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agents.html">Our Agents</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:2159470575">215-947-0575</a><a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a><a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Mega Realty. All rights reserved.</span><span style="margin:0 8px">·</span><a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a><div class="footer-social"><a href="https://www.facebook.com/MegaRealty/" target="_blank">f</a><a href="https://www.instagram.com/megarealty_/" target="_blank">ig</a><a href="https://www.linkedin.com/in/mega-realty/" target="_blank">in</a></div></div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

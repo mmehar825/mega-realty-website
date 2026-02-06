@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Mega Realty — Philadelphia Real Estate</title>
+<meta name="description" content="Get in touch with Mega Realty. Contact us for buying, selling, leasing, property management, or to learn about joining our team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .page-hero {
+    position: relative;
+    padding: 180px 48px 100px;
+    background: var(--black);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(111, 30, 28, 0.7) 0%, rgba(26, 25, 23, 0.9) 100%),
+      url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80') center/cover no-repeat;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .page-hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  /* ========== CONTACT SECTION ========== */
+  .contact-section {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+  }
+
+  /* Info side */
+  .contact-info h2 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 16px;
+  }
+
+  .contact-info > p {
+    font-size: 16px;
+    color: var(--gray-600);
+    line-height: 1.65;
+    margin-bottom: 40px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .contact-detail-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: linear-gradient(135deg, var(--burgundy), var(--burgundy-light));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-detail-text h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+  }
+
+  .contact-detail-text p,
+  .contact-detail-text a {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+
+  .contact-detail-text a:hover { color: var(--burgundy); }
+
+  /* Office hours */
+  .office-hours {
+    background: var(--off-white);
+    border-radius: 16px;
+    padding: 28px 32px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .office-hours h4 {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 16px;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row .day { color: var(--gray-600); }
+  .hours-row .time { color: var(--gray-800); font-weight: 600; }
+
+  /* Form side */
+  .contact-form-card {
+    background: var(--off-white);
+    border-radius: 20px;
+    padding: 48px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .contact-form-card h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+  }
+
+  .contact-form-card > p {
+    font-size: 15px;
+    color: var(--gray-600);
+    margin-bottom: 32px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background: var(--white);
+    transition: border-color 0.2s ease;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--burgundy);
+    box-shadow: 0 0 0 3px rgba(111, 30, 28, 0.08);
+  }
+
+  .form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--burgundy);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    background: var(--burgundy-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(111, 30, 28, 0.25);
+  }
+
+  /* ========== MAP ========== */
+  .map-section {
+    background: var(--off-white);
+    padding: 0;
+  }
+
+  .map-container {
+    width: 100%;
+    height: 400px;
+    background: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 140px 24px 72px; }
+    .contact-section { padding: 72px 24px; }
+    .contact-form-card { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .map-section > div { }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+  </a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li>
+      <a href="#" data-dropdown>Buying <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="buyer-representation.html">Buyer Representation</a>
+        <a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a>
+        <a href="moving-guide.html">Moving Guide</a>
+        <a href="mortgage-calculators.html">Mortgage Calculators</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" data-dropdown>Selling <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="selling-your-home.html">Selling Your Home</a>
+        <a href="value-of-sellers-agent.html">Value of a Seller's Agent</a>
+        <a href="virtual-market-analysis.html">Virtual Market Analysis</a>
+        <a href="moving-checklist.html">Moving Checklist</a>
+      </div>
+    </li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>Contact Us</h1>
+    <p>Have a question or ready to get started? We'd love to hear from you.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>Whether you're looking to buy, sell, lease, or need property management — or you're an agent interested in joining our team — we're here to help.</p>
+
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <h4>Phone</h4>
+            <a href="tel:2159470575">215-947-0575</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <h4>Email</h4>
+            <a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <h4>Abington Office</h4>
+            <p>1925 Old York Rd<br>Abington, PA 19001</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <h4>Philadelphia Office</h4>
+            <p>1923 Welsh Rd<br>Philadelphia, PA 19115</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="office-hours">
+        <h4>Office Hours</h4>
+        <div class="hours-row">
+          <span class="day">Monday – Friday</span>
+          <span class="time">10:00 AM – 5:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Saturday</span>
+          <span class="time">By Appointment</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Sunday</span>
+          <span class="time">By Appointment</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+      <h3>Send Us a Message</h3>
+      <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(215) 555-0123">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="interest">I'm Interested In</label>
+          <select id="interest" name="interest">
+            <option value="">Select one...</option>
+            <option value="buying">Buying a Property</option>
+            <option value="selling">Selling a Property</option>
+            <option value="leasing">Leasing</option>
+            <option value="management">Property Management</option>
+            <option value="career">Joining the Team (Agent)</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us how we can help..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <!-- 
+    TODO: Replace this iframe with a Google My Maps embed for best results.
+    Steps: 1) Go to https://mymaps.google.com  2) Create a new map
+    3) Add pins for both offices:
+       - 1925 Old York Rd, Abington, PA 19001
+       - 1923 Welsh Rd, Philadelphia, PA 19115
+    4) Customize pin colors/labels  5) Share > Embed on my site
+    6) Copy the iframe src URL and paste it below replacing the current src
+    This will show both pins with custom labels on a single map.
+  -->
+  <div class="map-container" style="position:relative">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d24350!2d-75.1100!3d40.1100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMega+Realty+Abington+PA!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy" style="width:100%;height:100%;border:none"></iframe>
+    <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10">
+      <a href="https://maps.google.com/?q=1925+Old+York+Rd,+Abington,+PA+19001" target="_blank" style="background:var(--burgundy);color:white;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;font-family:var(--font-body);text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:6px">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Abington Office
+      </a>
+      <a href="https://maps.google.com/?q=1923+Welsh+Rd,+Philadelphia,+PA+19115" target="_blank" style="background:var(--burgundy);color:white;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;font-family:var(--font-body);text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:6px">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Philadelphia Office
+      </a>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+      </a>
+      <p>Philadelphia-based real estate firm serving all of Pennsylvania — buying, selling, leasing, and property management.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Buying</a>
+      <a href="#">Selling</a>
+      <a href="#">Leasing</a>
+      <a href="property-management.html">Property Management</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:2159470575">215-947-0575</a>
+      <a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a>
+      <a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mega Realty. All rights reserved.</span><span style="margin:0 8px">·</span><a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/MegaRealty/" target="_blank" title="Facebook">f</a>
+      <a href="https://www.instagram.com/megarealty_/" target="_blank" title="Instagram">ig</a>
+      <a href="https://www.linkedin.com/in/mega-realty/" target="_blank" title="LinkedIn">in</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.form-submit');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = 'var(--green)';
+    btn.style.color = 'var(--black)';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.style.color = '';
+      this.reset();
+    }, 3000);
+  });
+</script>
+</body>
+</html>

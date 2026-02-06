@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Our Team | Mega Realty — 100% Commission Real Estate</title>
+<meta name="description" content="Keep 100% of your commission at Mega Realty. Just $100/month and $550 per transaction. Join Philadelphia's fastest-growing real estate team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ========== CAREERS HERO ========== */
+  .careers-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    overflow: hidden;
+  }
+
+  .careers-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(111, 30, 28, 0.88) 0%, rgba(26, 25, 23, 0.8) 50%, rgba(26, 25, 23, 0.92) 100%),
+      url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1920&q=80') center/cover no-repeat;
+  }
+
+  .careers-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 140px 48px 100px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .careers-hero-text {
+    animation: fadeUp 1s ease-out 0.3s both;
+  }
+
+  .careers-hero-text .hero-badge {
+    margin-bottom: 24px;
+  }
+
+  .careers-hero-text h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+
+  .careers-hero-text h1 .green { color: var(--green); }
+
+  .careers-hero-text p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+    margin-bottom: 36px;
+    max-width: 520px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    text-align: left;
+  }
+
+  .hero-stat-value {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  /* Hero form card */
+  .hero-form-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 44px 40px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+    animation: fadeUp 1s ease-out 0.5s both;
+  }
+
+  .hero-form-card h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+
+  .hero-form-card > p {
+    font-size: 15px;
+    color: var(--gray-600);
+    margin-bottom: 28px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background: var(--white);
+    transition: border-color 0.2s ease;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--burgundy);
+    box-shadow: 0 0 0 3px rgba(111, 30, 28, 0.08);
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--burgundy);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    background: var(--burgundy-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(111, 30, 28, 0.3);
+  }
+
+  .form-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 12px;
+  }
+
+  /* ========== COMMISSION COMPARISON ========== */
+  .comparison {
+    padding: 120px 48px;
+    background: var(--white);
+  }
+
+  .comparison-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 56px;
+  }
+
+  .comparison-intro h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+
+  .comparison-intro p {
+    font-size: 17px;
+    color: var(--gray-600);
+  }
+
+  /* Calculator */
+  .calc-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .calc-input-section {
+    background: var(--off-white);
+    border-radius: 16px;
+    padding: 32px 40px;
+    border: 1px solid var(--gray-200);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .calc-input-section label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gray-800);
+    white-space: nowrap;
+  }
+
+  .calc-slider-wrap {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .calc-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--gray-200);
+    outline: none;
+    margin-bottom: 4px;
+  }
+
+  .calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--burgundy);
+    cursor: pointer;
+    border: 3px solid var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .calc-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--burgundy);
+    cursor: pointer;
+    border: 3px solid var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .calc-price-display {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--burgundy);
+    white-space: nowrap;
+    min-width: 180px;
+    text-align: right;
+  }
+
+  .calc-commission-note {
+    font-size: 13px;
+    color: var(--gray-400);
+    text-align: center;
+    margin-top: -28px;
+    margin-bottom: 32px;
+  }
+
+  /* Results grid */
+  .calc-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .calc-card {
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    border: 2px solid var(--gray-200);
+    background: var(--white);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .calc-card.mega {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+    transform: scale(1.04);
+    box-shadow: 0 20px 60px rgba(111, 30, 28, 0.2);
+  }
+
+  .calc-card-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 18px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .calc-card-name {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .calc-card.mega .calc-card-name { color: var(--white); }
+
+  .calc-card-model {
+    font-size: 13px;
+    color: var(--gray-400);
+    margin-bottom: 24px;
+  }
+
+  .calc-card.mega .calc-card-model { color: rgba(255,255,255,0.5); }
+
+  .calc-card-amount {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .calc-card.mega .calc-card-amount { color: var(--green); }
+
+  .calc-card-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .calc-card.mega .calc-card-label { color: rgba(255,255,255,0.5); }
+  .calc-card:not(.mega) .calc-card-label { color: var(--gray-400); }
+
+  .calc-card-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .calc-card:not(.mega) .calc-card-breakdown {
+    border-top-color: var(--gray-200);
+  }
+
+  .calc-breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+
+  .calc-card.mega .calc-breakdown-row { color: rgba(255,255,255,0.6); }
+  .calc-card:not(.mega) .calc-breakdown-row { color: var(--gray-400); }
+
+  .calc-card.mega .calc-breakdown-row .amount { color: rgba(255,255,255,0.8); }
+  .calc-card:not(.mega) .calc-breakdown-row .amount { color: var(--gray-600); }
+
+  .calc-savings {
+    text-align: center;
+    margin-top: 32px;
+    padding: 20px;
+    background: rgba(138, 199, 17, 0.08);
+    border: 1px solid rgba(138, 199, 17, 0.2);
+    border-radius: 12px;
+  }
+
+  .calc-savings-label {
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+
+  .calc-savings-amount {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--green-dark);
+  }
+
+  .calc-savings-note {
+    font-size: 13px;
+    color: var(--gray-400);
+    margin-top: 4px;
+  }
+
+  /* ========== FIRST YEAR FREE PROMO ========== */
+  .promo {
+    padding: 80px 48px 0;
+    background: var(--white);
+    position: relative;
+  }
+
+  .promo-banner {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--black);
+    border-radius: 24px;
+    padding: 64px 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .promo-banner::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(138, 199, 17, 0.12) 0%, transparent 70%);
+  }
+
+  .promo-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(111, 30, 28, 0.15) 0%, transparent 70%);
+  }
+
+  .promo-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  .promo-eyebrow {
+    display: inline-block;
+    background: var(--green);
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+
+  .promo-text h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .promo-text h2 .green { color: var(--green); }
+
+  .promo-text p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .promo-details {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .promo-detail-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 24px 28px;
+    transition: all 0.3s ease;
+  }
+
+  .promo-detail-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(138, 199, 17, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .promo-detail-card h4 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .promo-detail-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .promo-fine {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 8px;
+  }
+
+  @media (max-width: 1024px) {
+    .promo-banner { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  @media (max-width: 768px) {
+    .promo { padding: 0 24px; }
+    .promo-banner { padding: 40px 28px; }
+  }
+  .benefits {
+    padding: 120px 48px;
+    background: var(--off-white);
+  }
+
+  .benefits-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .benefit-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 32px;
+    border: 1px solid var(--gray-200);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    border-color: transparent;
+  }
+
+  .benefit-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    background: linear-gradient(135deg, var(--burgundy), var(--burgundy-light));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+
+  .benefit-content h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+
+  .benefit-content p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ========== HOW JOINING WORKS ========== */
+  .join-steps {
+    padding: 120px 48px;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .join-steps::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(111, 30, 28, 0.2) 0%, transparent 70%);
+  }
+
+  .join-steps .section-label { color: var(--green); }
+  .join-steps .section-title { color: var(--white); }
+  .join-steps .section-desc { color: rgba(255,255,255,0.6); }
+
+  .join-steps-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+
+  .join-step-card {
+    text-align: center;
+    padding: 40px 24px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .join-step-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(138, 199, 17, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .join-step-num {
+    width: 48px;
+    height: 48px;
+    background: var(--burgundy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+    margin: 0 auto 18px;
+  }
+
+  .join-step-card h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .join-step-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* ========== BOTTOM CTA ========== */
+  .bottom-cta {
+    padding: 120px 48px;
+    background: var(--white);
+  }
+
+  .bottom-cta-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .bottom-cta-text h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .bottom-cta-text h2 .green { color: var(--green-dark); }
+
+  .bottom-cta-text p {
+    font-size: 17px;
+    color: var(--gray-600);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .quick-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .quick-fact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: var(--gray-800);
+    font-weight: 500;
+  }
+
+  .quick-fact .check-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    background: rgba(138, 199, 17, 0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green-dark);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* Bottom form */
+  .bottom-form-card {
+    background: var(--off-white);
+    border-radius: 20px;
+    padding: 44px 40px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .bottom-form-card h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+
+  .bottom-form-card > p {
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-bottom: 24px;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1024px) {
+    .careers-hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 140px 48px 72px; }
+    .calc-results { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .calc-card.mega { transform: scale(1); }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .join-steps-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .bottom-cta-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  @media (max-width: 768px) {
+    .careers-hero-inner { padding: 120px 24px 60px; }
+    .comparison, .benefits, .join-steps, .bottom-cta { padding: 80px 24px; }
+    .calc-input-section { flex-direction: column; padding: 24px; gap: 16px; }
+    .calc-price-display { text-align: center; }
+    .hero-form-card { padding: 32px 24px; }
+    .bottom-form-card { padding: 32px 24px; }
+    .hero-stats { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+  </a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li>
+      <a href="#" data-dropdown>Buying <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="buyer-representation.html">Buyer Representation</a>
+        <a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a>
+        <a href="moving-guide.html">Moving Guide</a>
+        <a href="mortgage-calculators.html">Mortgage Calculators</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" data-dropdown>Selling <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="selling-your-home.html">Selling Your Home</a>
+        <a href="value-of-sellers-agent.html">Value of a Seller's Agent</a>
+        <a href="virtual-market-analysis.html">Virtual Market Analysis</a>
+        <a href="moving-checklist.html">Moving Checklist</a>
+      </div>
+    </li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO WITH FORM -->
+<section class="careers-hero">
+  <div class="careers-hero-inner">
+    <div class="careers-hero-text">
+      <div class="hero-badge">Now Recruiting Licensed Agents</div>
+      <h1>Keep <span class="green">100%</span> of Your Commission.</h1>
+      <p>Stop giving away your hard-earned money. At Mega Realty, you keep every dollar you earn — with a flat $100/month fee and just $550 per transaction. No splits. No surprises. No limits on your income.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">100%</div>
+          <div class="hero-stat-label">Commission</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">$100</div>
+          <div class="hero-stat-label">Monthly Fee</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">$550</div>
+          <div class="hero-stat-label">Per Transaction</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-form-card">
+      <h3>Ready to Make the Switch?</h3>
+      <p>Fill out the form and we'll be in touch within 24 hours.</p>
+      <form id="heroForm">
+        <div class="form-group">
+          <label for="heroName">Full Name</label>
+          <input type="text" id="heroName" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="heroEmail">Email</label>
+          <input type="email" id="heroEmail" name="email" placeholder="you@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="heroPhone">Phone</label>
+          <input type="tel" id="heroPhone" name="phone" placeholder="(215) 555-0123" required>
+        </div>
+        <div class="form-group">
+          <label for="heroLicense">Are you currently licensed?</label>
+          <select id="heroLicense" name="license">
+            <option value="yes">Yes — I'm a licensed agent</option>
+            <option value="soon">Getting my license soon</option>
+            <option value="interested">Interested in getting licensed</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Get Started — Join Mega Realty →</button>
+        <div class="form-note">No commitment required. Let's just talk.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- COMMISSION COMPARISON CALCULATOR -->
+<section class="comparison">
+  <div class="comparison-intro">
+    <span class="section-label">See The Difference</span>
+    <h2>How Much More Could You<br>Be Taking Home?</h2>
+    <p>Slide the bar to see exactly how much you keep at Mega Realty vs. traditional brokerages on any sale.</p>
+  </div>
+  <div class="calc-container">
+    <div class="calc-input-section">
+      <label>Sale Price:</label>
+      <div class="calc-slider-wrap">
+        <input type="range" class="calc-slider" id="priceSlider" min="100000" max="1000000" step="25000" value="350000">
+      </div>
+      <div class="calc-price-display" id="priceDisplay">$350,000</div>
+    </div>
+    <div class="calc-commission-note">Based on a 6% total commission (both sides)</div>
+
+    <div class="calc-results">
+      <!-- Mega Realty -->
+      <div class="calc-card mega">
+        <div class="calc-card-badge">You Keep More</div>
+        <div class="calc-card-name">Mega Realty</div>
+        <div class="calc-card-model">100% commission model</div>
+        <div class="calc-card-amount" id="megaAmount">$9,950</div>
+        <div class="calc-card-label">Your Take-Home</div>
+        <div class="calc-card-breakdown">
+          <div class="calc-breakdown-row">
+            <span>Gross Commission (6%)</span>
+            <span class="amount" id="megaGross">$10,500</span>
+          </div>
+          <div class="calc-breakdown-row">
+            <span>Transaction Fee</span>
+            <span class="amount">−$550</span>
+          </div>
+          <div class="calc-breakdown-row">
+            <span>Broker Split</span>
+            <span class="amount">$0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keller Williams -->
+      <div class="calc-card">
+        <div class="calc-card-name" style="color: var(--gray-800)">70/30 Split Brokerage</div>
+        <div class="calc-card-model">Typical franchise model</div>
+        <div class="calc-card-amount" style="color: var(--gray-800)" id="kwAmount">$6,909</div>
+        <div class="calc-card-label">Your Take-Home</div>
+        <div class="calc-card-breakdown">
+          <div class="calc-breakdown-row">
+            <span>Gross Commission (6%)</span>
+            <span class="amount" id="kwGross">$10,500</span>
+          </div>
+          <div class="calc-breakdown-row">
+            <span>30% Broker Split</span>
+            <span class="amount" id="kwSplit">−$3,150</span>
+          </div>
+          <div class="calc-breakdown-row">
+            <span>6% Franchise Fee</span>
+            <span class="amount" id="kwFranchise">−$441</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coldwell Banker -->
+      <div class="calc-card">
+        <div class="calc-card-name" style="color: var(--gray-800)">60/40 Split Brokerage</div>
+        <div class="calc-card-model">Traditional brokerage model</div>
+        <div class="calc-card-amount" style="color: var(--gray-800)" id="cbAmount">$6,300</div>
+        <div class="calc-card-label">Your Take-Home</div>
+        <div class="calc-card-breakdown">
+          <div class="calc-breakdown-row">
+            <span>Gross Commission (6%)</span>
+            <span class="amount" id="cbGross">$10,500</span>
+          </div>
+          <div class="calc-breakdown-row">
+            <span>40% Broker Split</span>
+            <span class="amount" id="cbSplit">−$4,200</span>
+          </div>
+          <div class="calc-breakdown-row">
+            <span>Franchise Fee</span>
+            <span class="amount">$0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-savings">
+      <div class="calc-savings-label">You save up to</div>
+      <div class="calc-savings-amount" id="savingsAmount">$3,650</div>
+      <div class="calc-savings-note" id="savingsNote">more per deal with Mega Realty vs. Coldwell Banker</div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST YEAR FREE PROMO -->
+<section class="promo">
+  <div class="promo-banner reveal">
+    <div class="promo-text">
+      <div class="promo-eyebrow">Limited-Time Offer</div>
+      <h2>Your First Year Is <span class="green">On Us.</span></h2>
+      <p>Join Mega Realty today and pay zero monthly fees for your entire first year. That's 12 months of 100% commission with nothing but a $550 transaction fee standing between you and your full check.</p>
+      <p>Plus, every agent you refer who joins the team earns you another free year — there's no cap.</p>
+      <div class="promo-fine">Offer applies to monthly brokerage fees only. $550 per-transaction fee still applies.</div>
+    </div>
+    <div class="promo-details">
+      <div class="promo-detail-card">
+        <h4>
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          12 Months — $0 Monthly Fee
+        </h4>
+        <p>No monthly fees for your entire first year. Start earning from day one without worrying about overhead eating into your income.</p>
+      </div>
+      <div class="promo-detail-card">
+        <h4>
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          Refer an Agent, Get Another Free Year
+        </h4>
+        <p>Know someone who'd be a great fit? For every licensed agent you refer who joins Mega Realty, you earn an additional year with no monthly fees. No limit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="section-header">
+    <span class="section-label">Why Agents Choose Us</span>
+    <h2 class="section-title">Everything You Need to Succeed</h2>
+    <p class="section-desc">We give you the tools, freedom, and support to build your business — your way.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">
+        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="benefit-content">
+        <h3>100% Commission — Always</h3>
+        <p>Keep every dollar you earn. No splits, no caps, no hidden fees. Just a flat $100/month and $550 per transaction — the rest is yours.</p>
+      </div>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">
+        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="benefit-content">
+        <h3>Work From Anywhere</h3>
+        <p>No mandatory office hours. No desk fees. Work from home, a coffee shop, or on the go. Your schedule, your rules.</p>
+      </div>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">
+        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="benefit-content">
+        <h3>Marketing Support & Tools</h3>
+        <p>Access professional marketing materials, listing tools, and digital marketing support to help you close more deals and grow your brand.</p>
+      </div>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">
+        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="benefit-content">
+        <h3>Full Broker Support</h3>
+        <p>Have a question on a contract? Need help with a tricky deal? Our experienced broker team is always available to guide you through it.</p>
+      </div>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">
+        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <div class="benefit-content">
+        <h3>No Limits on Your Income</h3>
+        <p>There are no caps on your earnings. Close one deal or fifty — you keep 100% on every single transaction. The sky's the limit.</p>
+      </div>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">
+        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="benefit-content">
+        <h3>All of Pennsylvania, One Brokerage</h3>
+        <p>Serve clients anywhere in the state — from Philadelphia to Pittsburgh and everywhere in between — all under the Mega Realty name.</p>
+      </div>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">
+        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="benefit-content">
+        <h3>E&O Insurance Included</h3>
+        <p>Errors & Omissions coverage is included with your membership at no extra cost. You're protected from day one on every transaction — no separate policies to buy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO JOIN -->
+<section class="join-steps">
+  <div class="section-header">
+    <span class="section-label">Getting Started</span>
+    <h2 class="section-title">Join in 3 Simple Steps</h2>
+    <p class="section-desc">Getting started with Mega Realty is quick and easy.</p>
+  </div>
+  <div class="join-steps-grid">
+    <div class="join-step-card reveal">
+      <div class="join-step-num">1</div>
+      <h3>Reach Out</h3>
+      <p>Fill out the form on this page or give us a call. We'll schedule a quick intro conversation to learn about your goals.</p>
+    </div>
+    <div class="join-step-card reveal">
+      <div class="join-step-num">2</div>
+      <h3>Get Set Up</h3>
+      <p>We'll handle the paperwork and get you onboarded fast — including access to all tools, systems, and marketing materials.</p>
+    </div>
+    <div class="join-step-card reveal">
+      <div class="join-step-num">3</div>
+      <h3>Start Earning</h3>
+      <p>Hit the ground running with 100% commission from day one. No ramp-up period, no waiting. Your first deal, your full check.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA WITH FORM -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <div class="bottom-cta-text">
+      <span class="section-label">Make The Move</span>
+      <h2>Your Career. Your Commission. <span class="green">Your Choice.</span></h2>
+      <p>Every day you stay at a traditional brokerage, you're leaving thousands on the table. Mega Realty lets you keep what you earn — it's that simple.</p>
+      <div class="quick-facts">
+        <div class="quick-fact">
+          <div class="check-icon">✓</div>
+          <span>100% commission on every transaction</span>
+        </div>
+        <div class="quick-fact">
+          <div class="check-icon">✓</div>
+          <span>$100/month flat fee — no hidden costs</span>
+        </div>
+        <div class="quick-fact">
+          <div class="check-icon">✓</div>
+          <span>$550 per transaction — that's it</span>
+        </div>
+        <div class="quick-fact">
+          <div class="check-icon">✓</div>
+          <span>Work from anywhere — no desk fees</span>
+        </div>
+        <div class="quick-fact">
+          <div class="check-icon">✓</div>
+          <span>Marketing tools & broker support included</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-form-card">
+      <h3>Let's Talk</h3>
+      <p>No pressure, no commitment — just a conversation about your career.</p>
+      <form id="bottomForm">
+        <div class="form-group">
+          <label for="btmName">Full Name</label>
+          <input type="text" id="btmName" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="btmEmail">Email</label>
+          <input type="email" id="btmEmail" name="email" placeholder="you@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="btmPhone">Phone</label>
+          <input type="tel" id="btmPhone" name="phone" placeholder="(215) 555-0123" required>
+        </div>
+        <button type="submit" class="form-submit">Get Started →</button>
+        <div class="form-note">We'll reach out within 24 hours.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+      </a>
+      <p>Philadelphia-based real estate firm serving all of Pennsylvania — buying, selling, leasing, and property management.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Buying</a>
+      <a href="#">Selling</a>
+      <a href="#">Leasing</a>
+      <a href="property-management.html">Property Management</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:2159470575">215-947-0575</a>
+      <a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a>
+      <a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mega Realty. All rights reserved.</span><span style="margin:0 8px">·</span><a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/MegaRealty/" target="_blank" title="Facebook">f</a>
+      <a href="https://www.instagram.com/megarealty_/" target="_blank" title="Instagram">ig</a>
+      <a href="https://www.linkedin.com/in/mega-realty/" target="_blank" title="LinkedIn">in</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Commission Calculator
+  const slider = document.getElementById('priceSlider');
+  const priceDisplay = document.getElementById('priceDisplay');
+
+  function formatMoney(n) {
+    return '$' + n.toLocaleString('en-US');
+  }
+
+  function updateCalc() {
+    const price = parseInt(slider.value);
+    const commission = price * 0.06;
+
+    priceDisplay.textContent = formatMoney(price);
+
+    // Mega Realty: 100% - $550 transaction fee
+    const megaNet = commission - 550;
+    document.getElementById('megaGross').textContent = formatMoney(commission);
+    document.getElementById('megaAmount').textContent = formatMoney(Math.round(megaNet));
+
+    // Keller Williams: 70/30 split, then 6% franchise fee on agent's share
+    const kwAgentShare = commission * 0.70;
+    const kwFranchise = kwAgentShare * 0.06;
+    const kwNet = kwAgentShare - kwFranchise;
+    document.getElementById('kwGross').textContent = formatMoney(commission);
+    document.getElementById('kwSplit').textContent = '−' + formatMoney(Math.round(commission * 0.30));
+    document.getElementById('kwFranchise').textContent = '−' + formatMoney(Math.round(kwFranchise));
+    document.getElementById('kwAmount').textContent = formatMoney(Math.round(kwNet));
+
+    // Coldwell Banker: 60/40 split
+    const cbNet = commission * 0.60;
+    document.getElementById('cbGross').textContent = formatMoney(commission);
+    document.getElementById('cbSplit').textContent = '−' + formatMoney(Math.round(commission * 0.40));
+    document.getElementById('cbAmount').textContent = formatMoney(Math.round(cbNet));
+
+    // Savings (vs worst case — Coldwell Banker)
+    const savings = Math.round(megaNet - cbNet);
+    document.getElementById('savingsAmount').textContent = formatMoney(savings);
+    document.getElementById('savingsNote').textContent = 'more per deal with Mega Realty vs. a traditional brokerage';
+  }
+
+  slider.addEventListener('input', updateCalc);
+  updateCalc();
+
+  // Form submissions
+  ['heroForm', 'bottomForm'].forEach(formId => {
+    document.getElementById(formId).addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      const originalText = btn.textContent;
+      btn.textContent = 'Submitted! We\'ll be in touch ✓';
+      btn.style.background = '#6ea00e';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        this.reset();
+      }, 3000);
+    });
+  });
+</script>
+</body>
+</html>

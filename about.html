@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Mega Realty — Philadelphia Real Estate</title>
+<meta name="description" content="Learn about Mega Realty — Philadelphia's premier real estate firm dedicated to excellence in buying, selling, leasing, and property management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ========== PAGE HERO (short) ========== */
+  .page-hero {
+    position: relative;
+    padding: 180px 48px 100px;
+    background: var(--black);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(111, 30, 28, 0.7) 0%, rgba(26, 25, 23, 0.9) 100%),
+      url('https://images.unsplash.com/photo-1582407947092-50b8c1eb69e1?w=1920&q=80') center/cover no-repeat;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .page-hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  /* ========== ABOUT SECTIONS ========== */
+  .about-story {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .about-story-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-story-image {
+    height: 480px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .about-story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-story-image::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    width: 50%;
+    height: 50%;
+    border: 3px solid var(--burgundy);
+    border-radius: 20px;
+    z-index: -1;
+  }
+
+  .about-text h2 {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  /* ========== VALUES ========== */
+  .values {
+    padding: 100px 48px;
+    background: var(--off-white);
+  }
+
+  .values-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .value-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px 32px;
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.07);
+    border-color: transparent;
+  }
+
+  .value-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--burgundy), var(--burgundy-light));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+  }
+
+  .value-card h3 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 10px;
+  }
+
+  .value-card p {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ========== TEAM ========== */
+  .team {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .team-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .team-card {
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .team-card:hover { transform: translateY(-4px); }
+
+  .team-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background: var(--gray-200);
+    overflow: hidden;
+    border: 4px solid var(--white);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: var(--burgundy);
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  .team-card h3 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+  }
+
+  .team-card .role {
+    font-size: 14px;
+    color: var(--burgundy);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .team-card p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  /* ========== AREAS SERVED LIST ========== */
+  .about-areas {
+    padding: 100px 48px;
+    background: var(--black);
+    text-align: center;
+  }
+
+  .about-areas .section-label { color: var(--green); }
+  .about-areas .section-title { color: var(--white); }
+  .about-areas .section-desc { color: rgba(255,255,255,0.6); }
+
+  .areas-tags {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .area-tag {
+    padding: 10px 24px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    transition: all 0.25s ease;
+  }
+
+  .area-tag:hover {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+    color: var(--white);
+  }
+
+  @media (max-width: 1024px) {
+    .about-story-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-story-image { height: 340px; }
+    .about-story-image::after { display: none; }
+    .values-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 140px 24px 72px; }
+    .about-story, .values, .team, .about-areas { padding: 72px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+  </a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li>
+      <a href="#" data-dropdown>Buying <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="buyer-representation.html">Buyer Representation</a>
+        <a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a>
+        <a href="moving-guide.html">Moving Guide</a>
+        <a href="mortgage-calculators.html">Mortgage Calculators</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" data-dropdown>Selling <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="selling-your-home.html">Selling Your Home</a>
+        <a href="value-of-sellers-agent.html">Value of a Seller's Agent</a>
+        <a href="virtual-market-analysis.html">Virtual Market Analysis</a>
+        <a href="moving-checklist.html">Moving Checklist</a>
+      </div>
+    </li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>About Mega Realty</h1>
+    <p>A Philadelphia real estate firm built on integrity, expertise, and a commitment to helping our clients and agents succeed.</p>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="about-story">
+  <div class="about-story-inner">
+    <div class="about-story-image reveal">
+      <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&q=80" alt="Mega Realty Office" loading="lazy">
+    </div>
+    <div class="about-text">
+      <span class="section-label">Our Story</span>
+      <h2>Built on Relationships, Driven by Results</h2>
+      <p>At Mega Realty, you're getting more than just a real estate service — you're getting a partner dedicated to achieving your goals. Our team's profound market knowledge ensures unparalleled service across buying, selling, leasing, or managing properties.</p>
+      <p>We pride ourselves on creating personalized solutions that fit your unique needs, making the complex real estate process seamless and stress-free. With a proven track record of success and a host of satisfied clients, our results speak for themselves.</p>
+      <p>We also believe that great agents deserve a great brokerage. That's why we offer a 100% commission model with low flat fees — giving our agents the freedom and support they need to build thriving businesses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="section-header">
+    <span class="section-label">Our Values</span>
+    <h2 class="section-title">What Sets Us Apart</h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon">
+        <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Integrity First</h3>
+      <p>We do the right thing, every time. Honest communication and transparent dealings are the foundation of everything we do.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">
+        <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Client-Centered</h3>
+      <p>Your goals are our goals. We listen first, then deliver personalized solutions tailored to your unique situation.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">
+        <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Results-Driven</h3>
+      <p>We leverage the latest technology, market insights, and negotiation expertise to achieve the best possible outcomes.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">
+        <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h3>Always Available</h3>
+      <p>Real estate doesn't wait. Our team provides 24/7 support so you never miss an opportunity or feel left in the dark.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">
+        <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <h3>Local Expertise</h3>
+      <p>We live and work in the Philadelphia area. Our deep local knowledge gives you a real competitive advantage.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">
+        <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Agent Empowerment</h3>
+      <p>We built our brokerage model to put agents first — 100% commission, low fees, and the support you need to grow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="section-header">
+    <span class="section-label">Leadership</span>
+    <h2 class="section-title">Meet Our Team</h2>
+    <p class="section-desc">The people behind Mega Realty who work every day to deliver exceptional service.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-photo">S</div>
+      <h3>Sunny</h3>
+      <div class="role">Broker / Owner</div>
+      <p>Leading Mega Realty with a vision for agent empowerment and client excellence across the greater Philadelphia area.</p>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-photo">+</div>
+      <h3>Your Name Here</h3>
+      <div class="role">Join Our Growing Team</div>
+      <p>We're always looking for talented agents who want to keep 100% of their commission. Get in touch today.</p>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-photo">+</div>
+      <h3>Your Name Here</h3>
+      <div class="role">Join Our Growing Team</div>
+      <p>Build your career with a brokerage that puts you first. Low fees, full support, total freedom.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="about-areas">
+  <div class="section-header">
+    <span class="section-label">Our Markets</span>
+    <h2 class="section-title">Areas We Serve</h2>
+    <p class="section-desc">From city neighborhoods to suburban communities, Mega Realty covers the greater Philadelphia region.</p>
+  </div>
+  <div class="areas-tags">
+    <span class="area-tag">Northern Liberties</span>
+    <span class="area-tag">Center City</span>
+    <span class="area-tag">Fishtown</span>
+    <span class="area-tag">Point Breeze</span>
+    <span class="area-tag">Kensington</span>
+    <span class="area-tag">Fairmount</span>
+    <span class="area-tag">Rittenhouse Square</span>
+    <span class="area-tag">University City</span>
+    <span class="area-tag">Washington Square</span>
+    <span class="area-tag">South Philadelphia</span>
+    <span class="area-tag">Roxborough</span>
+    <span class="area-tag">Manayunk</span>
+    <span class="area-tag">Abington</span>
+    <span class="area-tag">Cheltenham</span>
+    <span class="area-tag">Chester</span>
+    <span class="area-tag">Delaware County</span>
+    <span class="area-tag">Bucks County</span>
+    <span class="area-tag">Montgomery County</span>
+    <span class="area-tag">Lehigh Valley</span>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready to Work With Us?</h2>
+  <p>Whether you need real estate services or want to join our team — let's talk.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn-primary">Contact Us →</a>
+    <a href="careers.html" class="btn-secondary">Join Our Team →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+      </a>
+      <p>Philadelphia-based real estate firm serving all of Pennsylvania — buying, selling, leasing, and property management.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Buying</a>
+      <a href="#">Selling</a>
+      <a href="#">Leasing</a>
+      <a href="property-management.html">Property Management</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:2159470575">215-947-0575</a>
+      <a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a>
+      <a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mega Realty. All rights reserved.</span><span style="margin:0 8px">·</span><a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/MegaRealty/" target="_blank" title="Facebook">f</a>
+      <a href="https://www.instagram.com/megarealty_/" target="_blank" title="Instagram">ig</a>
+      <a href="https://www.linkedin.com/in/mega-realty/" target="_blank" title="LinkedIn">in</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

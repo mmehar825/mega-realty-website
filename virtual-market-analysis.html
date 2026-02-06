@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Virtual Market Analysis | Mega Realty — What's Your Home Worth?</title>
+<meta name="description" content="Get a free comparative market analysis (CMA) for your Pennsylvania property. Find out what your home is worth in today's market — no obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="#" data-dropdown>Buying <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="buyer-representation.html">Buyer Representation</a><a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a><a href="moving-guide.html">Moving Guide</a><a href="mortgage-calculators.html">Mortgage Calculators</a></div></li>
+    <li><a href="#" data-dropdown>Selling <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="selling-your-home.html">Selling Your Home</a><a href="value-of-sellers-agent.html">Value of a Seller's Agent</a><a href="virtual-market-analysis.html">Virtual Market Analysis</a><a href="moving-checklist.html">Moving Checklist</a></div></li>
+    <li><a href="#">Leasing</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>What's Your Home Worth?</h1>
+    <p>Request a free, personalized Comparative Market Analysis from a Mega Realty agent — no obligation.</p>
+  </div>
+</section>
+
+<section class="article-section">
+  <div class="article-content">
+    <h2>Get Your Free Market Analysis</h2>
+    <p>Fill out the form below and a Mega Realty agent will prepare a detailed Comparative Market Analysis (CMA) for your property. We'll analyze recent sales, active listings, and market trends in your specific neighborhood to determine what your home could sell for today.</p>
+
+    <div class="calc-embed">
+      <form id="cmaForm">
+        <label for="cmaAddress">Property Address</label>
+        <input type="text" id="cmaAddress" placeholder="123 Main St, Philadelphia, PA 19103" required>
+
+        <label for="cmaName">Your Name</label>
+        <input type="text" id="cmaName" placeholder="Your full name" required>
+
+        <label for="cmaEmail">Email</label>
+        <input type="text" id="cmaEmail" placeholder="you@email.com" required>
+
+        <label for="cmaPhone">Phone</label>
+        <input type="text" id="cmaPhone" placeholder="(215) 555-0123">
+
+        <label for="cmaTimeline">Selling Timeline</label>
+        <select id="cmaTimeline">
+          <option value="asap">As soon as possible</option>
+          <option value="3months" selected>Within 3 months</option>
+          <option value="6months">Within 6 months</option>
+          <option value="exploring">Just exploring — not sure yet</option>
+        </select>
+
+        <button type="submit" style="width:100%;padding:16px;background:var(--burgundy);color:white;border:none;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;font-family:var(--font-body);margin-top:8px">Request My Free CMA →</button>
+      </form>
+    </div>
+
+    <h2>What Is a Comparative Market Analysis?</h2>
+    <p>A CMA is a professional evaluation of your property's value based on real market data. Unlike automated online estimates (like Zestimates), a CMA is prepared by a licensed agent who considers factors that algorithms miss — your home's condition, upgrades, lot characteristics, street appeal, and local micro-market trends.</p>
+
+    <h2>What's Included in Your CMA</h2>
+
+    <div class="checklist">
+      <div class="checklist-item"><div class="checklist-icon">✓</div><span>Analysis of 5–10 comparable recent sales in your area</span></div>
+      <div class="checklist-item"><div class="checklist-icon">✓</div><span>Review of active competing listings</span></div>
+      <div class="checklist-item"><div class="checklist-icon">✓</div><span>Local market trend data (prices, days on market, inventory)</span></div>
+      <div class="checklist-item"><div class="checklist-icon">✓</div><span>Recommended listing price range</span></div>
+      <div class="checklist-item"><div class="checklist-icon">✓</div><span>Estimated net proceeds after selling costs</span></div>
+      <div class="checklist-item"><div class="checklist-icon">✓</div><span>Personalized recommendations for maximizing value</span></div>
+    </div>
+
+    <h2>Why Online Estimates Fall Short</h2>
+    <p>Automated home value tools are useful as a starting point, but they frequently miss the mark by 5–15% or more. They can't account for recent renovations, neighborhood nuances, or the condition of your property compared to comparable homes. A professional CMA gives you a realistic, data-backed valuation you can actually rely on.</p>
+
+    <div class="highlight-box">
+      <p>Our CMA is 100% free, with no obligation to list. Even if you're just curious about your home's value, we're happy to help.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <h2>Curious What Your Home Is Worth?</h2>
+  <p>Get a professional market analysis — free and with zero obligation.</p>
+  <div class="cta-buttons">
+    <a href="#" onclick="document.getElementById('cmaAddress').focus();window.scrollTo({top:0,behavior:'smooth'});return false;" class="btn-primary">Request Your Free CMA →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a><p>Pennsylvania's premier real estate firm — serving all of Pennsylvania.</p></div>
+    <div class="footer-col"><h4>Services</h4><a href="buyer-representation.html">Buying</a><a href="selling-your-home.html">Selling</a><a href="#">Leasing</a><a href="property-management.html">Property Management</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agents.html">Our Agents</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:2159470575">215-947-0575</a><a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a><a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Mega Realty. All rights reserved. <a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a></span><div class="footer-social"><a href="https://www.facebook.com/MegaRealty/" target="_blank">f</a><a href="https://www.instagram.com/megarealty_/" target="_blank">ig</a><a href="https://www.linkedin.com/in/mega-realty/" target="_blank">in</a></div></div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+document.getElementById('cmaForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button');
+  btn.textContent = 'Request Submitted! We\'ll be in touch ✓';
+  btn.style.background = '#6ea00e';
+  setTimeout(() => { btn.textContent = 'Request My Free CMA →'; btn.style.background = ''; this.reset(); }, 3000);
+});
+</script>
+</body>
+</html>

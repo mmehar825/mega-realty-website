@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Management | Mega Realty — Philadelphia</title>
+<meta name="description" content="Professional property management services in Philadelphia. Tenant screening, maintenance, rent collection, and financial reporting. Rent your property in 30 days or less.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .page-hero {
+    position: relative;
+    padding: 180px 48px 100px;
+    background: var(--black);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(111, 30, 28, 0.7) 0%, rgba(26, 25, 23, 0.9) 100%),
+      url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80') center/cover no-repeat;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .page-hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  /* ========== PRICING ========== */
+  .pricing {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .pricing-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .pricing-card {
+    background: var(--burgundy);
+    border-radius: 24px;
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  }
+
+  .pricing-card h3 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    position: relative;
+  }
+
+  .pricing-row:last-child { border-bottom: none; }
+
+  .pricing-label {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .pricing-value {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  .pricing-cta {
+    margin-top: 36px;
+    position: relative;
+  }
+
+  .pricing-cta .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pricing-text h2 {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .pricing-text p {
+    font-size: 16px;
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .guarantee-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(138, 199, 17, 0.1);
+    border: 1px solid rgba(138, 199, 17, 0.25);
+    padding: 12px 24px;
+    border-radius: 12px;
+    margin-top: 16px;
+  }
+
+  .guarantee-badge span {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-dark);
+  }
+
+  /* ========== SERVICES INCLUDED ========== */
+  .mgmt-services {
+    padding: 100px 48px;
+    background: var(--off-white);
+  }
+
+  .mgmt-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .mgmt-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 28px;
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s ease;
+  }
+
+  .mgmt-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.07);
+    border-color: transparent;
+  }
+
+  .mgmt-card-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--burgundy), var(--burgundy-light));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 24px;
+  }
+
+  .mgmt-card h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+  }
+
+  .mgmt-card p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ========== HOW IT WORKS ========== */
+  .how-it-works {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .steps {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 28px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--gray-200);
+    align-items: start;
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-number {
+    width: 64px;
+    height: 64px;
+    background: var(--burgundy);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white);
+  }
+
+  .step-content h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+  }
+
+  .step-content p {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  /* ========== AREAS ========== */
+  .pm-areas {
+    padding: 100px 48px;
+    background: var(--black);
+    text-align: center;
+  }
+
+  .pm-areas .section-label { color: var(--green); }
+  .pm-areas .section-title { color: var(--white); }
+  .pm-areas .section-desc { color: rgba(255,255,255,0.6); }
+
+  .pm-areas-list {
+    max-width: 800px;
+    margin: 40px auto 0;
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    line-height: 2;
+  }
+
+  .pm-areas-list span {
+    padding: 0 6px;
+  }
+
+  .pm-areas-list span::after {
+    content: ' · ';
+    color: var(--burgundy-light);
+  }
+
+  .pm-areas-list span:last-child::after { content: ''; }
+
+  /* ========== FAQ ========== */
+  .faq {
+    padding: 100px 48px;
+    background: var(--off-white);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+
+  .faq-item.active { border-color: var(--burgundy); }
+
+  .faq-question {
+    width: 100%;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+    text-align: left;
+  }
+
+  .faq-question:hover { color: var(--burgundy); }
+
+  .faq-toggle {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    background: var(--off-white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--gray-600);
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.active .faq-toggle {
+    background: var(--burgundy);
+    color: var(--white);
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 300px;
+  }
+
+  .faq-answer-inner {
+    padding: 0 24px 20px;
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1024px) {
+    .pricing-inner { grid-template-columns: 1fr; gap: 48px; }
+    .mgmt-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 140px 24px 72px; }
+    .pricing, .mgmt-services, .how-it-works, .pm-areas, .faq { padding: 72px 24px; }
+    .pricing-card { padding: 36px 28px; }
+    .step { grid-template-columns: 56px 1fr; gap: 16px; }
+    .step-number { width: 48px; height: 48px; font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+  </a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li>
+      <a href="#" data-dropdown>Buying <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="buyer-representation.html">Buyer Representation</a>
+        <a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a>
+        <a href="moving-guide.html">Moving Guide</a>
+        <a href="mortgage-calculators.html">Mortgage Calculators</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" data-dropdown>Selling <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="selling-your-home.html">Selling Your Home</a>
+        <a href="value-of-sellers-agent.html">Value of a Seller's Agent</a>
+        <a href="virtual-market-analysis.html">Virtual Market Analysis</a>
+        <a href="moving-checklist.html">Moving Checklist</a>
+      </div>
+    </li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>Property Management</h1>
+    <p>Full-service property management for Philadelphia landlords. We handle everything so you can enjoy the returns without the headaches.</p>
+    <a href="contact.html" class="btn-primary">Get a Free Consultation →</a>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-card">
+      <h3>Simple, Transparent Pricing</h3>
+      <div class="pricing-row">
+        <span class="pricing-label">Monthly Management Fee</span>
+        <span class="pricing-value">8–10%</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-label">Leasing Fee</span>
+        <span class="pricing-value">1 Month's Rent</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-label">Lease Renewal Fee</span>
+        <span class="pricing-value">$100–$299</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-label">24/7 Support</span>
+        <span class="pricing-value">Included</span>
+      </div>
+      <div class="pricing-cta">
+        <a href="contact.html" class="btn-primary">Start Right Away →</a>
+      </div>
+    </div>
+    <div class="pricing-text">
+      <span class="section-label">Why Us</span>
+      <h2>We Stand Behind Every Tenant We Place</h2>
+      <p>Mega Realty is here to address all your property management requirements. We take the stress out of being a landlord by handling every aspect of property management — from finding quality tenants to maintaining your property to collecting rent on time.</p>
+      <p>Our team knows the Philadelphia rental market inside and out. We price your property right, market it effectively, and screen tenants thoroughly. And if a tenant we place leaves within the first 6 months, we'll find a replacement at no additional cost to you.</p>
+      <div class="guarantee-badge">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--green-dark)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>6-Month Tenant Guarantee — Free Replacement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="mgmt-services">
+  <div class="section-header">
+    <span class="section-label">What's Included</span>
+    <h2 class="section-title">Full-Service Management</h2>
+    <p class="section-desc">Everything you need to keep your investment running smoothly — all under one roof.</p>
+  </div>
+  <div class="mgmt-grid">
+    <div class="mgmt-card reveal">
+      <div class="mgmt-card-icon">
+        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Tenant Screening</h3>
+      <p>Thorough background checks, credit reports, employment verification, and reference checks to find reliable tenants.</p>
+    </div>
+    <div class="mgmt-card reveal">
+      <div class="mgmt-card-icon">
+        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      </div>
+      <h3>Rent Collection</h3>
+      <p>Automated rent collection with online payment options. We handle late payments, notices, and deposit management.</p>
+    </div>
+    <div class="mgmt-card reveal">
+      <div class="mgmt-card-icon">
+        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <h3>Maintenance & Repairs</h3>
+      <p>24/7 maintenance coordination with vetted, reliable contractors. Quick response times for emergencies.</p>
+    </div>
+    <div class="mgmt-card reveal">
+      <div class="mgmt-card-icon">
+        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <h3>Financial Reporting</h3>
+      <p>Monthly income statements, expense reports, and year-end tax documents. Full transparency on your investment.</p>
+    </div>
+    <div class="mgmt-card reveal">
+      <div class="mgmt-card-icon">
+        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h3>Tenant Relations</h3>
+      <p>We handle all tenant communications, complaints, and requests — so you don't have to deal with late-night calls.</p>
+    </div>
+    <div class="mgmt-card reveal">
+      <div class="mgmt-card-icon">
+        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Legal Compliance</h3>
+      <p>We stay on top of local, state, and federal regulations so your property stays compliant and protected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <div class="section-header">
+    <span class="section-label">Getting Started</span>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-desc">Getting started with Mega Realty property management is simple.</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3>Free Consultation</h3>
+        <p>We'll assess your property, discuss your goals, and create a customized management plan tailored to your needs and budget.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h3>Property Setup</h3>
+        <p>We'll inspect the property, handle any needed repairs, set competitive rental pricing, and create professional listings with photography.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h3>Tenant Placement</h3>
+        <p>We market your property across all major platforms, conduct showings, screen applicants thoroughly, and place quality tenants.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h3>Ongoing Management</h3>
+        <p>Sit back and relax. We handle rent collection, maintenance, tenant relations, inspections, and everything in between. You just collect your returns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="pm-areas">
+  <div class="section-header">
+    <span class="section-label">Service Areas</span>
+    <h2 class="section-title">Areas We Manage</h2>
+    <p class="section-desc">We provide property management services across the greater Philadelphia area.</p>
+  </div>
+  <div class="pm-areas-list">
+    <span>Northern Liberties</span>
+    <span>Center City</span>
+    <span>Fishtown</span>
+    <span>Point Breeze</span>
+    <span>Kensington</span>
+    <span>Fairmount</span>
+    <span>Rittenhouse Square</span>
+    <span>University City</span>
+    <span>Washington Square</span>
+    <span>South Philadelphia</span>
+    <span>Roxborough</span>
+    <span>Manayunk</span>
+    <span>Abington</span>
+    <span>Cheltenham</span>
+    <span>Chester</span>
+    <span>Delaware County</span>
+    <span>Bucks County</span>
+    <span>Montgomery County</span>
+    <span>Lehigh Valley</span>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-header">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Common Questions</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How quickly can you rent my property?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">We work quickly to get your property rented with qualified tenants. Our marketing strategy includes professional photography, listings on all major rental platforms, social media promotion, and our extensive network of relocating tenants. Plus, if a tenant we place leaves within the first 6 months, we'll find you a replacement at no extra cost.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How do you screen tenants?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">We run comprehensive background checks including credit reports, criminal history, eviction records, employment verification, income verification (we require 3x monthly rent), and previous landlord references.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What happens if a tenant doesn't pay rent?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">We follow a strict collection process. Late notices are sent immediately, and if payment isn't received within the grace period, we begin the legal process. We handle all communication, court filings, and eviction proceedings if necessary — you never have to deal with it directly.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How do I receive my rental income?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Rental income is deposited directly into your bank account each month after deducting management fees and any approved expenses. You'll receive a detailed monthly statement showing all income and expenses.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can I still be involved in decisions about my property?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Absolutely. You set the parameters and we follow them. For routine maintenance under a threshold you set, we handle it automatically. For larger expenses or decisions, we always consult with you first. You stay informed and in control.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready for Stress-Free Property Management?</h2>
+  <p>Let us handle the hard work. Get a free consultation today.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn-primary">Get Started →</a>
+    <a href="tel:2159470575" class="btn-secondary">Call 215-947-0575</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+      </a>
+      <p>Philadelphia-based real estate firm serving all of Pennsylvania — buying, selling, leasing, and property management.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Buying</a>
+      <a href="#">Selling</a>
+      <a href="#">Leasing</a>
+      <a href="property-management.html">Property Management</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:2159470575">215-947-0575</a>
+      <a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a>
+      <a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mega Realty. All rights reserved.</span><span style="margin:0 8px">·</span><a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/MegaRealty/" target="_blank" title="Facebook">f</a>
+      <a href="https://www.instagram.com/megarealty_/" target="_blank" title="Instagram">ig</a>
+      <a href="https://www.linkedin.com/in/mega-realty/" target="_blank" title="LinkedIn">in</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!wasActive) item.classList.add('active');
+  }
+</script>
+</body>
+</html>

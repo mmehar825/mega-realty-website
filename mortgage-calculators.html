@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Calculators | Mega Realty — Pennsylvania Real Estate</title>
+<meta name="description" content="Free mortgage calculators to estimate your monthly payment, affordability, and more. Plan your Pennsylvania home purchase with confidence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="#" data-dropdown>Buying <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="buyer-representation.html">Buyer Representation</a><a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a><a href="moving-guide.html">Moving Guide</a><a href="mortgage-calculators.html">Mortgage Calculators</a></div></li>
+    <li><a href="#" data-dropdown>Selling <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="selling-your-home.html">Selling Your Home</a><a href="value-of-sellers-agent.html">Value of a Seller's Agent</a><a href="virtual-market-analysis.html">Virtual Market Analysis</a><a href="moving-checklist.html">Moving Checklist</a></div></li>
+    <li><a href="#">Leasing</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>Mortgage Calculators</h1>
+    <p>Estimate your monthly payment, see what you can afford, and plan your home purchase with confidence.</p>
+  </div>
+</section>
+
+<section class="article-section">
+  <div class="article-content">
+    <h2>Monthly Payment Calculator</h2>
+    <p>Enter a home price, down payment, interest rate, and loan term to see your estimated monthly mortgage payment — including principal, interest, taxes, and insurance.</p>
+
+    <div class="calc-embed">
+      <label for="calcPrice">Home Price</label>
+      <input type="number" id="calcPrice" value="350000" step="5000">
+
+      <label for="calcDown">Down Payment (%)</label>
+      <input type="number" id="calcDown" value="20" min="0" max="100" step="1">
+
+      <label for="calcRate">Interest Rate (%)</label>
+      <input type="number" id="calcRate" value="6.75" step="0.05">
+
+      <label for="calcTerm">Loan Term</label>
+      <select id="calcTerm">
+        <option value="30" selected>30 Years</option>
+        <option value="15">15 Years</option>
+      </select>
+
+      <button onclick="calculateMortgage()" style="width:100%;padding:14px;background:var(--burgundy);color:white;border:none;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;font-family:var(--font-body);margin-top:8px">Calculate →</button>
+
+      <div class="calc-result" id="calcResult" style="display:none">
+        <div class="calc-result-label">Estimated Monthly Payment</div>
+        <div class="calc-result-value" id="monthlyPayment">$0</div>
+        <div style="display:flex;justify-content:center;gap:24px;margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5)">
+          <span>P&I: <span id="piAmount" style="color:rgba(255,255,255,0.75)">$0</span></span>
+          <span>Taxes: <span id="taxAmount" style="color:rgba(255,255,255,0.75)">$0</span></span>
+          <span>Insurance: <span id="insAmount" style="color:rgba(255,255,255,0.75)">$0</span></span>
+        </div>
+      </div>
+    </div>
+
+    <h2>Understanding Your Mortgage</h2>
+    <p>Your monthly mortgage payment typically includes four components, often called PITI: Principal (the loan amount you're paying down), Interest (the lender's charge for borrowing), Taxes (property taxes, which vary by county in Pennsylvania), and Insurance (homeowner's insurance to protect your property).</p>
+
+    <p>In Pennsylvania, property tax rates vary significantly by municipality. Philadelphia city has a rate around 1.3998%, while suburban counties may range from 1% to 2.5%. Your Mega Realty agent can help you understand the exact tax implications for any property you're considering.</p>
+
+    <h2>Tips for Getting the Best Rate</h2>
+
+    <div class="article-steps">
+      <div class="article-step">
+        <div class="article-step-content">
+          <h3>Check Your Credit Score First</h3>
+          <p>Your credit score is the single biggest factor in the rate you'll qualify for. A score above 740 typically gets you the best conventional rates. Take time to review and improve your credit before applying.</p>
+        </div>
+      </div>
+      <div class="article-step">
+        <div class="article-step-content">
+          <h3>Shop Multiple Lenders</h3>
+          <p>Don't just go with the first lender you talk to. Get quotes from at least three different lenders — banks, credit unions, and mortgage brokers often have different rates and fee structures.</p>
+        </div>
+      </div>
+      <div class="article-step">
+        <div class="article-step-content">
+          <h3>Consider Points</h3>
+          <p>Paying discount points upfront (each point = 1% of the loan amount) can buy down your interest rate. If you plan to stay in the home long-term, this can save tens of thousands over the life of the loan.</p>
+        </div>
+      </div>
+      <div class="article-step">
+        <div class="article-step-content">
+          <h3>Get Pre-Approved</h3>
+          <p>A pre-approval letter shows sellers you're serious and gives you a clear budget. In competitive markets, it can make the difference between winning and losing a bidding war.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Need Help With Financing?</h2>
+    <p>Mega Realty agents work with a network of trusted mortgage lenders across Pennsylvania. We can connect you with professionals who specialize in your situation — whether you're a first-time buyer, self-employed, VA-eligible, or looking at investment properties.</p>
+
+    <a href="contact.html" class="btn-burgundy">Get Connected With a Lender →</a>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <h2>Ready to Get Pre-Approved?</h2>
+  <p>We'll connect you with trusted lenders who can help you lock in the best rate.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn-primary">Contact Us →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a><p>Pennsylvania's premier real estate firm — serving all of Pennsylvania.</p></div>
+    <div class="footer-col"><h4>Services</h4><a href="buyer-representation.html">Buying</a><a href="selling-your-home.html">Selling</a><a href="#">Leasing</a><a href="property-management.html">Property Management</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agents.html">Our Agents</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:2159470575">215-947-0575</a><a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a><a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Mega Realty. All rights reserved. <a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a></span><div class="footer-social"><a href="https://www.facebook.com/MegaRealty/" target="_blank">f</a><a href="https://www.instagram.com/megarealty_/" target="_blank">ig</a><a href="https://www.linkedin.com/in/mega-realty/" target="_blank">in</a></div></div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+function calculateMortgage() {
+  const price = parseFloat(document.getElementById('calcPrice').value);
+  const downPct = parseFloat(document.getElementById('calcDown').value) / 100;
+  const rate = parseFloat(document.getElementById('calcRate').value) / 100 / 12;
+  const term = parseInt(document.getElementById('calcTerm').value) * 12;
+  const loan = price * (1 - downPct);
+  const pi = loan * (rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+  const tax = (price * 0.015) / 12;
+  const ins = (price * 0.004) / 12;
+  const total = pi + tax + ins;
+  const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+  document.getElementById('monthlyPayment').textContent = fmt(total);
+  document.getElementById('piAmount').textContent = fmt(pi);
+  document.getElementById('taxAmount').textContent = fmt(tax);
+  document.getElementById('insAmount').textContent = fmt(ins);
+  document.getElementById('calcResult').style.display = 'block';
+}
+calculateMortgage();
+</script>
+</body>
+</html>

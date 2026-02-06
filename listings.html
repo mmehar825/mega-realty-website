@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listings | Mega Realty — Rentals & Properties For Sale in Pennsylvania</title>
+<meta name="description" content="Browse available rental properties and homes for sale across Pennsylvania. Mega Realty offers listings in Philadelphia, the suburbs, and statewide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .page-hero{position:relative;padding:180px 48px 100px;background:var(--black);overflow:hidden;text-align:center}
+  .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(111,30,28,0.7) 0%,rgba(26,25,23,0.9) 100%),url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80') center/cover no-repeat}
+  .page-hero-content{position:relative;z-index:2;max-width:700px;margin:0 auto}
+  .page-hero h1{font-family:var(--font-heading);font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--white);margin-bottom:16px}
+  .page-hero p{font-size:18px;color:rgba(255,255,255,0.65);line-height:1.6}
+
+  /* ========== LISTINGS SECTIONS ========== */
+  .listings-section {
+    padding: 100px 48px;
+  }
+
+  .listings-section:nth-child(odd) { background: var(--white); }
+  .listings-section:nth-child(even) { background: var(--off-white); }
+
+  .listings-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .listings-inner.reverse .listings-text { order: 2; }
+  .listings-inner.reverse .listings-visual { order: 1; }
+
+  .listings-text .section-label { margin-bottom: 12px; }
+
+  .listings-text h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .listings-text p {
+    font-size: 16px;
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .listings-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .listings-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--gray-700);
+    font-weight: 500;
+  }
+
+  .listings-feature .feat-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background: rgba(138, 199, 17, 0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .listings-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    background: var(--burgundy);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .listings-btn:hover {
+    background: var(--burgundy-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(111, 30, 28, 0.25);
+  }
+
+  .listings-btn-secondary {
+    background: transparent;
+    border: 2px solid var(--burgundy);
+    color: var(--burgundy);
+    margin-left: 12px;
+  }
+
+  .listings-btn-secondary:hover {
+    background: var(--burgundy);
+    color: var(--white);
+    box-shadow: none;
+  }
+
+  /* Visual card */
+  .listings-visual {
+    position: relative;
+  }
+
+  .listings-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border: 1px solid var(--gray-200);
+  }
+
+  .listings-card-img {
+    height: 260px;
+    overflow: hidden;
+  }
+
+  .listings-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .listings-card:hover .listings-card-img img {
+    transform: scale(1.05);
+  }
+
+  .listings-card-body {
+    padding: 28px;
+  }
+
+  .listings-card-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .tag-rental {
+    background: rgba(138, 199, 17, 0.12);
+    color: var(--green-dark);
+  }
+
+  .tag-sale {
+    background: rgba(111, 30, 28, 0.08);
+    color: var(--burgundy);
+  }
+
+  .listings-card-body h3 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+
+  .listings-card-body .card-address {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+  }
+
+  .listings-card-stats {
+    display: flex;
+    gap: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .card-stat {
+    font-size: 13px;
+    color: var(--gray-600);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card-stat strong {
+    color: var(--gray-800);
+  }
+
+  /* Accent shape behind the card */
+  .listings-visual::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    width: 60%;
+    height: 60%;
+    border: 3px solid var(--burgundy);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.2;
+  }
+
+  /* ========== PROPERTY MGMT CALLOUT ========== */
+  .pm-callout {
+    padding: 80px 48px;
+    background: var(--black);
+    text-align: center;
+  }
+
+  .pm-callout-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .pm-callout h2 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .pm-callout p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .pm-callout .listings-btn {
+    background: var(--green);
+    color: var(--black);
+  }
+
+  .pm-callout .listings-btn:hover {
+    background: var(--green-dark);
+    box-shadow: 0 8px 24px rgba(138, 199, 17, 0.25);
+  }
+
+  @media (max-width: 1024px) {
+    .listings-inner { grid-template-columns: 1fr; gap: 48px; }
+    .listings-inner.reverse .listings-text { order: 1; }
+    .listings-inner.reverse .listings-visual { order: 2; }
+    .listings-visual::after { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 140px 24px 72px; }
+    .listings-section { padding: 72px 24px; }
+    .pm-callout { padding: 60px 24px; }
+    .listings-btn-secondary { margin-left: 0; margin-top: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+  </a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li>
+      <a href="#" data-dropdown>Buying <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="buyer-representation.html">Buyer Representation</a>
+        <a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a>
+        <a href="moving-guide.html">Moving Guide</a>
+        <a href="mortgage-calculators.html">Mortgage Calculators</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" data-dropdown>Selling <span class="arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="selling-your-home.html">Selling Your Home</a>
+        <a href="value-of-sellers-agent.html">Value of a Seller's Agent</a>
+        <a href="virtual-market-analysis.html">Virtual Market Analysis</a>
+        <a href="moving-checklist.html">Moving Checklist</a>
+      </div>
+    </li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>Our Listings</h1>
+    <p>Browse available rental properties and homes for sale across Pennsylvania.</p>
+  </div>
+</section>
+
+<!-- RENTALS -->
+<section class="listings-section">
+  <div class="listings-inner">
+    <div class="listings-text">
+      <span class="section-label">Rentals</span>
+      <h2>Find Your Next Rental</h2>
+      <p>We manage a growing portfolio of rental properties across the Philadelphia area — from apartments and townhomes to single-family homes. Every property is professionally maintained and tenant-ready.</p>
+      <div class="listings-features">
+        <div class="listings-feature">
+          <div class="feat-icon">
+            <svg width="16" height="16" fill="none" stroke="var(--green-dark)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Online applications & payments</span>
+        </div>
+        <div class="listings-feature">
+          <div class="feat-icon">
+            <svg width="16" height="16" fill="none" stroke="var(--green-dark)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>24/7 maintenance support</span>
+        </div>
+        <div class="listings-feature">
+          <div class="feat-icon">
+            <svg width="16" height="16" fill="none" stroke="var(--green-dark)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Professionally managed properties</span>
+        </div>
+      </div>
+      <!-- TODO: Replace # with your AppFolio listings URL -->
+      <a href="#" class="listings-btn" target="_blank">
+        View Available Rentals
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+    <div class="listings-visual">
+      <div class="listings-card">
+        <div class="listings-card-img">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80" alt="Rental property" loading="lazy">
+        </div>
+        <div class="listings-card-body">
+          <div class="listings-card-tag tag-rental">For Rent</div>
+          <h3>$1,650/mo</h3>
+          <div class="card-address">Philadelphia, PA — Northern Liberties</div>
+          <div class="listings-card-stats">
+            <div class="card-stat"><strong>2</strong> Beds</div>
+            <div class="card-stat"><strong>1</strong> Bath</div>
+            <div class="card-stat"><strong>950</strong> sq ft</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR SALE -->
+<section class="listings-section">
+  <div class="listings-inner reverse">
+    <div class="listings-text">
+      <span class="section-label">For Sale</span>
+      <h2>Properties For Sale</h2>
+      <p>Whether you're a first-time buyer or looking for your next investment property, our agents list homes across all of Pennsylvania. Browse our current inventory and schedule a showing.</p>
+      <div class="listings-features">
+        <div class="listings-feature">
+          <div class="feat-icon">
+            <svg width="16" height="16" fill="none" stroke="var(--green-dark)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Homes, condos, townhomes & investment properties</span>
+        </div>
+        <div class="listings-feature">
+          <div class="feat-icon">
+            <svg width="16" height="16" fill="none" stroke="var(--green-dark)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Schedule a private showing anytime</span>
+        </div>
+        <div class="listings-feature">
+          <div class="feat-icon">
+            <svg width="16" height="16" fill="none" stroke="var(--green-dark)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Expert guidance from listing to closing</span>
+        </div>
+      </div>
+      <!-- TODO: Replace # with your MLS/Zillow/listings URL -->
+      <a href="#" class="listings-btn" target="_blank">
+        View Properties For Sale
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+    <div class="listings-visual">
+      <div class="listings-card">
+        <div class="listings-card-img">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80" alt="Property for sale" loading="lazy">
+        </div>
+        <div class="listings-card-body">
+          <div class="listings-card-tag tag-sale">For Sale</div>
+          <h3>$385,000</h3>
+          <div class="card-address">Abington, PA — Montgomery County</div>
+          <div class="listings-card-stats">
+            <div class="card-stat"><strong>3</strong> Beds</div>
+            <div class="card-stat"><strong>2.5</strong> Baths</div>
+            <div class="card-stat"><strong>1,800</strong> sq ft</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY MANAGEMENT CALLOUT -->
+<section class="pm-callout">
+  <div class="pm-callout-inner">
+    <h2>Own a Rental Property?</h2>
+    <p>Let Mega Realty handle the hard work. We offer full-service property management with a 6-month tenant guarantee — if a tenant we place leaves early, we replace them for free.</p>
+    <a href="property-management.html" class="listings-btn">Learn About Property Management →</a>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Can't Find What You're Looking For?</h2>
+  <p>Reach out and one of our agents will help you find the perfect property.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn-primary">Contact Us →</a>
+    <a href="tel:2159470575" class="btn-secondary">Call 215-947-0575</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Mega Realty" class="nav-logo-img">
+      </a>
+      <p>Philadelphia-based real estate firm serving all of Pennsylvania — buying, selling, leasing, and property management.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Buying</a>
+      <a href="#">Selling</a>
+      <a href="listings.html">Listings</a>
+      <a href="property-management.html">Property Management</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:2159470575">215-947-0575</a>
+      <a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a>
+      <a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mega Realty. All rights reserved.</span><span style="margin:0 8px">·</span><a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/MegaRealty/" target="_blank" title="Facebook">f</a>
+      <a href="https://www.instagram.com/megarealty_/" target="_blank" title="Instagram">ig</a>
+      <a href="https://www.linkedin.com/in/mega-realty/" target="_blank" title="LinkedIn">in</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
