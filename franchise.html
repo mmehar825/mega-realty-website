@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franchise Opportunity | Mega Realty — Own a 100% Commission Brokerage</title>
+<meta name="description" content="Open your own Mega Realty franchise. 100% commission model, full support system, proven business model. Franchise opportunities available across Pennsylvania and beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ========== FRANCHISE PAGE ========== */
+
+.fran-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  overflow: hidden;
+}
+
+.fran-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(111, 30, 28, 0.92) 0%, rgba(26, 25, 23, 0.85) 40%, rgba(26, 25, 23, 0.95) 100%);
+  z-index: 1;
+}
+
+.fran-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80') center/cover no-repeat;
+  z-index: -1;
+  transform: scale(1.05);
+  animation: slowZoom 25s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
+}
+
+.fran-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 850px;
+  padding: 0 32px;
+}
+
+.fran-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(138, 199, 17, 0.15);
+  border: 1px solid rgba(138, 199, 17, 0.3);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.fran-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.fran-hero h1 em { font-style: italic; color: var(--green); }
+
+.fran-hero .subhead {
+  font-size: 19px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+
+.fran-hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-green-big {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 40px;
+  background: var(--green);
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(138, 199, 17, 0.3);
+}
+
+.btn-green-big:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(138, 199, 17, 0.4);
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 32px;
+  background: transparent;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-white:hover {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ========== OPPORTUNITY SECTION ========== */
+.fran-opportunity {
+  padding: 100px 48px;
+  background: var(--white);
+}
+
+.fran-opp-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.fran-opp-img {
+  border-radius: 20px;
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+}
+
+.fran-opp-text h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  color: var(--gray-800);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.fran-opp-text h2 em { font-style: italic; color: var(--burgundy); }
+
+.fran-opp-text p {
+  font-size: 17px;
+  color: var(--gray-600);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+/* ========== WHY FRANCHISE ========== */
+.fran-why {
+  padding: 100px 48px;
+  background: var(--off-white);
+}
+
+.fran-why-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fran-why .section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.fran-why .section-label {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(111, 30, 28, 0.08);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--burgundy);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.fran-why h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: var(--gray-800);
+  line-height: 1.15;
+}
+
+.fran-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.fran-pillar {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  padding: 36px 28px;
+  transition: all 0.3s ease;
+}
+
+.fran-pillar:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+  border-color: transparent;
+}
+
+.fran-pillar-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.fran-pillar-icon.green { background: var(--green); }
+
+.fran-pillar h3 {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 8px;
+}
+
+.fran-pillar p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.65;
+}
+
+/* ========== HOW IT WORKS ========== */
+.fran-how {
+  padding: 100px 48px;
+  background: var(--black);
+}
+
+.fran-how-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.fran-how .section-header { text-align: center; margin-bottom: 56px; }
+.fran-how .section-label { color: var(--green); }
+.fran-how h2 { font-family: var(--font-heading); font-size: clamp(28px,3.5vw,42px); font-weight: 800; color: var(--white); line-height: 1.15; }
+
+.fran-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fran-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s ease;
+}
+
+.fran-step:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateX(4px);
+}
+
+.fran-step-num {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 14px;
+  background: var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.fran-step h3 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.fran-step p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+/* ========== WHAT YOU GET ========== */
+.fran-included {
+  padding: 100px 48px;
+  background: var(--white);
+}
+
+.fran-included-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fran-included .section-header { text-align: center; margin-bottom: 56px; }
+
+.fran-included-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.fran-inc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  background: var(--off-white);
+  border-radius: 14px;
+  border: 1px solid var(--gray-200);
+}
+
+.fran-inc-check {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 8px;
+  background: rgba(138, 199, 17, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-dark);
+  font-size: 14px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.fran-inc-item h4 {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 2px;
+}
+
+.fran-inc-item p {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* ========== IDEAL CANDIDATE ========== */
+.fran-ideal {
+  padding: 100px 48px;
+  background: var(--off-white);
+}
+
+.fran-ideal-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fran-ideal h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: var(--gray-800);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.fran-ideal > p {
+  font-size: 17px;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+
+.fran-ideal-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.fran-ideal-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 28px 24px;
+}
+
+.fran-ideal-card h3 {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 6px;
+}
+
+.fran-ideal-card p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+/* ========== INQUIRY FORM ========== */
+.fran-form {
+  padding: 100px 48px;
+  background: var(--burgundy);
+  position: relative;
+  overflow: hidden;
+}
+
+.fran-form::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, transparent 60%);
+}
+
+.fran-form-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fran-form h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.fran-form > p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 36px;
+}
+
+.fran-form-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 36px;
+  text-align: left;
+}
+
+.fran-form-field {
+  margin-bottom: 16px;
+}
+
+.fran-form-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+}
+
+.fran-form-field input, .fran-form-field select, .fran-form-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: var(--white);
+  font-size: 15px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.fran-form-field input:focus, .fran-form-field select:focus, .fran-form-field textarea:focus {
+  border-color: var(--green);
+}
+
+.fran-form-field select option { background: var(--black); color: var(--white); }
+
+.fran-form-field textarea { resize: vertical; min-height: 100px; }
+
+.fran-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fran-submit {
+  width: 100%;
+  padding: 16px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 12px;
+  background: var(--green);
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fran-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(138, 199, 17, 0.3);
+}
+
+.fran-form-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .fran-hero { min-height: 90vh; }
+  .fran-hero-content { padding: 0 20px; }
+  .fran-opp-inner { grid-template-columns: 1fr; gap: 32px; }
+  .fran-pillars { grid-template-columns: 1fr; }
+  .fran-included-grid { grid-template-columns: 1fr; }
+  .fran-ideal-cards { grid-template-columns: 1fr; }
+  .fran-form-row { grid-template-columns: 1fr; }
+  .fran-opportunity, .fran-why, .fran-how, .fran-included, .fran-ideal, .fran-form { padding: 72px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <ul class="nav-left">
+    <li><a href="#" data-dropdown>Buying <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="buyer-representation.html">Buyer Representation</a><a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a><a href="moving-guide.html">Moving Guide</a><a href="mortgage-calculators.html">Mortgage Calculators</a></div></li>
+    <li><a href="#" data-dropdown>Selling <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="selling-your-home.html">Selling Your Home</a><a href="value-of-sellers-agent.html">Value of a Seller's Agent</a><a href="virtual-market-analysis.html">Virtual Market Analysis</a><a href="moving-checklist.html">Moving Checklist</a></div></li>
+    <li><a href="listings.html">Listings</a></li>
+    </ul>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-right">
+    <li><a href="investors.html">Investors</a></li>
+    <li><a href="#" data-dropdown>Company <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="about.html">About Us</a><a href="property-management.html">Property Management</a><a href="blog.html">Blog</a><a href="agents.html">Our Agents</a><a href="contact.html">Contact</a><a href="franchise.html">Franchise</a></div></li>
+    <li><a href="careers.html" class="nav-cta">Join Us →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="fran-hero">
+  <div class="fran-hero-bg"></div>
+  <div class="fran-hero-content">
+    <div class="fran-badge">Franchise Opportunities Available</div>
+    <h1>Own a <em>Mega Realty</em> Franchise</h1>
+    <p class="subhead">Build your own 100% commission brokerage with a proven model, full corporate support, and a brand that's built for the modern real estate market.</p>
+    <div class="fran-hero-buttons">
+      <a href="#inquiry" class="btn-green-big">Request Franchise Info →</a>
+      <a href="#how-it-works" class="btn-outline-white">How It Works ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section class="fran-opportunity">
+  <div class="fran-opp-inner">
+    <img class="fran-opp-img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="Mega Realty franchise opportunity" loading="lazy">
+    <div class="fran-opp-text">
+      <h2>The Future of Real Estate Is <em>100% Commission.</em></h2>
+      <p>Traditional brokerages take 20-30% of every agent's paycheck. That model is dying. The best agents are moving to flat-fee, 100% commission brokerages — and they're taking their clients with them.</p>
+      <p>As a Mega Realty franchise owner, you'll operate the brokerage model that agents actually want to join. You'll recruit faster, retain longer, and build a profitable business on transaction fees and monthly dues — not by cutting into your agents' commissions.</p>
+      <p>We give you the brand, the systems, the training, and the ongoing support. You bring the hustle and local market knowledge. Together, we grow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY FRANCHISE WITH MEGA -->
+<section class="fran-why">
+  <div class="fran-why-inner">
+    <div class="section-header">
+      <div class="section-label">Why Mega</div>
+      <h2>A Franchise Built Different</h2>
+    </div>
+
+    <div class="fran-pillars">
+      <div class="fran-pillar">
+        <div class="fran-pillar-icon">
+          <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Agents Want to Join You</h3>
+        <p>100% commission is the strongest recruiting pitch in real estate. Agents actively seek out flat-fee brokerages. You won't have to beg — they'll come to you.</p>
+      </div>
+      <div class="fran-pillar">
+        <div class="fran-pillar-icon green">
+          <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Recurring Revenue Model</h3>
+        <p>Earn from monthly agent fees and per-transaction fees. As your agent count grows, your income compounds — predictable, scalable, and not tied to your own closings.</p>
+      </div>
+      <div class="fran-pillar">
+        <div class="fran-pillar-icon">
+          <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Full Corporate Support</h3>
+        <p>Marketing materials, onboarding systems, technology platforms, legal compliance, and ongoing coaching from Mega HQ. You're in business for yourself, not by yourself.</p>
+      </div>
+      <div class="fran-pillar">
+        <div class="fran-pillar-icon green">
+          <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Growing Brand</h3>
+        <p>Mega Realty is expanding across Pennsylvania with a modern brand, digital-first approach, and investor community that no traditional brokerage can match.</p>
+      </div>
+      <div class="fran-pillar">
+        <div class="fran-pillar-icon">
+          <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Tech-Enabled Operations</h3>
+        <p>CRM, agent onboarding portal, marketing automation, and digital tools included with your franchise. Run a modern brokerage from day one without building the tech yourself.</p>
+      </div>
+      <div class="fran-pillar">
+        <div class="fran-pillar-icon green">
+          <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Low Overhead, High Margins</h3>
+        <p>No need for a fancy office with rows of desks. The 100% commission model runs lean — your agents work remotely, and your overhead stays low while revenue scales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="fran-how" id="how-it-works">
+  <div class="fran-how-inner">
+    <div class="section-header">
+      <div class="section-label" style="display:inline-block;padding:6px 16px;background:rgba(138,199,17,0.12);border-radius:100px;font-size:12px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">Getting Started</div>
+      <h2>How It Works</h2>
+    </div>
+
+    <div class="fran-steps">
+      <div class="fran-step">
+        <div class="fran-step-num">1</div>
+        <div>
+          <h3>Submit Your Inquiry</h3>
+          <p>Fill out the franchise interest form below. Tell us about your background, your market, and your vision. We'll review your application and schedule a discovery call.</p>
+        </div>
+      </div>
+      <div class="fran-step">
+        <div class="fran-step-num">2</div>
+        <div>
+          <h3>Discovery & Approval</h3>
+          <p>We'll walk through the franchise model in detail — the economics, territory, support system, and growth plan. If it's a mutual fit, we move forward with the franchise agreement.</p>
+        </div>
+      </div>
+      <div class="fran-step">
+        <div class="fran-step-num">3</div>
+        <div>
+          <h3>Training & Setup</h3>
+          <p>Complete our franchise owner training program covering operations, recruiting, compliance, technology, and marketing. We'll help you set up your office, systems, and launch plan.</p>
+        </div>
+      </div>
+      <div class="fran-step">
+        <div class="fran-step-num">4</div>
+        <div>
+          <h3>Launch & Recruit</h3>
+          <p>Open your doors and start recruiting agents. With Mega's 100% commission model and first-year-free promotion, you'll have a compelling pitch from day one. Our team supports you every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="fran-included">
+  <div class="fran-included-inner">
+    <div class="section-header">
+      <div class="section-label" style="display:inline-block;padding:6px 16px;background:rgba(111,30,28,0.08);border-radius:100px;font-size:12px;font-weight:700;color:var(--burgundy);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">What's Included</div>
+      <h2 style="font-family:var(--font-heading);font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--gray-800);line-height:1.15">Everything You Need to Launch</h2>
+    </div>
+
+    <div class="fran-included-grid">
+      <div class="fran-inc-item">
+        <div class="fran-inc-check">✓</div>
+        <div>
+          <h4>Mega Realty Brand License</h4>
+          <p>Full rights to operate under the Mega Realty name, logo, and brand guidelines in your exclusive territory.</p>
+        </div>
+      </div>
+      <div class="fran-inc-item">
+        <div class="fran-inc-check">✓</div>
+        <div>
+          <h4>Agent Recruiting Playbook</h4>
+          <p>Proven scripts, ad templates, and recruiting strategies that have been tested and optimized to attract agents.</p>
+        </div>
+      </div>
+      <div class="fran-inc-item">
+        <div class="fran-inc-check">✓</div>
+        <div>
+          <h4>Technology Stack</h4>
+          <p>CRM, agent management portal, marketing tools, and onboarding systems — all set up and ready to go.</p>
+        </div>
+      </div>
+      <div class="fran-inc-item">
+        <div class="fran-inc-check">✓</div>
+        <div>
+          <h4>Compliance & Legal Support</h4>
+          <p>PA real estate compliance guidance, contract templates, and ongoing legal support to keep you protected.</p>
+        </div>
+      </div>
+      <div class="fran-inc-item">
+        <div class="fran-inc-check">✓</div>
+        <div>
+          <h4>Marketing Materials</h4>
+          <p>Website presence, social media templates, listing presentations, and digital ad creatives customized for your market.</p>
+        </div>
+      </div>
+      <div class="fran-inc-item">
+        <div class="fran-inc-check">✓</div>
+        <div>
+          <h4>Franchise Owner Training</h4>
+          <p>Comprehensive training on operations, financial management, recruiting, retention, and leadership.</p>
+        </div>
+      </div>
+      <div class="fran-inc-item">
+        <div class="fran-inc-check">✓</div>
+        <div>
+          <h4>Ongoing Coaching & Support</h4>
+          <p>Regular calls with Mega HQ, access to the franchise owner community, and ongoing strategic guidance.</p>
+        </div>
+      </div>
+      <div class="fran-inc-item">
+        <div class="fran-inc-check">✓</div>
+        <div>
+          <h4>Investor Network Access</h4>
+          <p>Your agents get access to the Mega Investor Network — a built-in pipeline of investors and wholesalers looking for deals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEAL CANDIDATE -->
+<section class="fran-ideal">
+  <div class="fran-ideal-inner">
+    <h2>Who We're Looking For</h2>
+    <p>Mega Realty franchises are built for ambitious operators — whether you're a current broker, an experienced agent ready to lead, or an entrepreneur entering real estate.</p>
+
+    <div class="fran-ideal-cards">
+      <div class="fran-ideal-card">
+        <h3>🏠 Experienced Brokers</h3>
+        <p>You're running a brokerage but losing agents to flat-fee models. Convert to Mega and stop the bleeding while keeping your team.</p>
+      </div>
+      <div class="fran-ideal-card">
+        <h3>📈 Top-Producing Agents</h3>
+        <p>You've built a successful career and want to build something bigger. A franchise lets you earn from your network, not just your own deals.</p>
+      </div>
+      <div class="fran-ideal-card">
+        <h3>💼 Real Estate Investors</h3>
+        <p>You know the market and want recurring revenue. A brokerage franchise adds a scalable income stream alongside your investment portfolio.</p>
+      </div>
+      <div class="fran-ideal-card">
+        <h3>🚀 Entrepreneurs</h3>
+        <p>You have leadership ability, sales experience, and the drive to build something from the ground up with a proven framework behind you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="fran-form" id="inquiry">
+  <div class="fran-form-inner">
+    <h2>Let's Talk</h2>
+    <p>Interested in owning a Mega Realty franchise? Fill out the form below and our franchise team will be in touch within 48 hours.</p>
+
+    <div class="fran-form-card">
+      <div class="fran-form-row">
+        <div class="fran-form-field">
+          <label>First Name</label>
+          <input type="text" placeholder="Your first name">
+        </div>
+        <div class="fran-form-field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Your last name">
+        </div>
+      </div>
+      <div class="fran-form-row">
+        <div class="fran-form-field">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="fran-form-field">
+          <label>Phone</label>
+          <input type="tel" placeholder="(555) 555-5555">
+        </div>
+      </div>
+      <div class="fran-form-field">
+        <label>Target Market / Location</label>
+        <input type="text" placeholder="e.g., Lehigh Valley, PA">
+      </div>
+      <div class="fran-form-field">
+        <label>Your Background</label>
+        <select>
+          <option value="">Select one...</option>
+          <option>Current Broker/Owner</option>
+          <option>Licensed Agent (5+ years)</option>
+          <option>Licensed Agent (under 5 years)</option>
+          <option>Real Estate Investor</option>
+          <option>Entrepreneur (new to real estate)</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fran-form-field">
+        <label>Tell Us About Your Vision</label>
+        <textarea placeholder="What excites you about owning a Mega Realty franchise? What's your experience and goals?"></textarea>
+      </div>
+      <button class="fran-submit" onclick="this.textContent='Application Submitted ✓'; this.style.background='#333'; this.style.color='#fff'">Submit Franchise Inquiry →</button>
+      <div class="fran-form-note">No commitment. We'll schedule a discovery call to explore the opportunity together.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a><p>Pennsylvania's premier real estate firm — serving all of Pennsylvania.</p></div>
+    <div class="footer-col"><h4>Services</h4><a href="buyer-representation.html">Buying</a><a href="selling-your-home.html">Selling</a><a href="#">Leasing</a><a href="property-management.html">Property Management</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agents.html">Our Agents</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:2159470575">215-947-0575</a><a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a><a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Mega Realty. All rights reserved. <a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a></span><div class="footer-social"><a href="https://www.facebook.com/MegaRealty/" target="_blank">f</a><a href="https://www.instagram.com/megarealty_/" target="_blank">ig</a><a href="https://www.linkedin.com/in/mega-realty/" target="_blank">in</a></div></div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

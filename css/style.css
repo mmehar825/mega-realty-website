@@ -35,7 +35,7 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; }
 
 /* ============================================
-   NAVBAR
+   NAVBAR — Centered Logo
    ============================================ */
 .navbar {
   position: fixed;
@@ -43,11 +43,11 @@ a { text-decoration: none; }
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 0 48px;
+  padding: 0 40px;
   height: 90px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -64,56 +64,62 @@ a { text-decoration: none; }
   display: flex;
   align-items: center;
   text-decoration: none;
+  margin: 0 28px;
+  flex-shrink: 0;
 }
 
 .nav-logo-img {
-  height: 64px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   transition: all 0.3s ease;
 }
 
 .navbar.scrolled .nav-logo-img {
-  height: 50px;
+  height: 46px;
 }
 
-/* Nav links with dropdowns */
-.nav-links {
+/* Nav link groups */
+.nav-left, .nav-right {
   display: flex;
   align-items: center;
   gap: 2px;
   list-style: none;
 }
 
-.nav-links > li {
+.nav-left { justify-content: flex-end; flex: 1; }
+.nav-right { justify-content: flex-start; flex: 1; }
+
+.nav-left > li, .nav-right > li {
   position: relative;
 }
 
-.nav-links > li > a {
+.nav-left > li > a, .nav-right > li > a {
   color: var(--gray-700);
   font-size: 14px;
   font-weight: 500;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: 8px;
   transition: all 0.25s ease;
   letter-spacing: 0.2px;
   display: flex;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
 }
 
-.nav-links > li > a:hover {
+.nav-left > li > a:hover, .nav-right > li > a:hover {
   color: var(--burgundy);
   background: rgba(111, 30, 28, 0.05);
 }
 
 /* Dropdown arrow */
-.nav-links > li > a .arrow {
+.nav-left > li > a .arrow, .nav-right > li > a .arrow {
   font-size: 10px;
   transition: transform 0.25s ease;
 }
 
-.nav-links > li:hover > a .arrow {
+.nav-left > li:hover > a .arrow, .nav-right > li:hover > a .arrow {
   transform: rotate(180deg);
 }
 
@@ -121,7 +127,8 @@ a { text-decoration: none; }
 .nav-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
   min-width: 220px;
   background: var(--white);
   border-radius: 12px;
@@ -129,15 +136,14 @@ a { text-decoration: none; }
   padding: 8px;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(8px);
   transition: all 0.25s ease;
   margin-top: 8px;
 }
 
-.nav-links > li:hover .nav-dropdown {
+.nav-left > li:hover .nav-dropdown, .nav-right > li:hover .nav-dropdown {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 .nav-dropdown a {
@@ -160,7 +166,7 @@ a { text-decoration: none; }
   background: var(--burgundy) !important;
   color: var(--white) !important;
   font-weight: 600 !important;
-  padding: 10px 22px !important;
+  padding: 10px 20px !important;
   border-radius: 8px !important;
 }
 
@@ -182,6 +188,8 @@ a { text-decoration: none; }
   align-items: center;
   justify-content: center;
   gap: 5px;
+  position: absolute;
+  right: 24px;
 }
 
 .mobile-toggle span {
@@ -1057,7 +1065,7 @@ a { text-decoration: none; }
 
 @media (max-width: 768px) {
   .navbar { padding: 0 24px; }
-  .nav-links {
+  .nav-left, .nav-right {
     display: none;
     position: absolute;
     top: 100%;
@@ -1068,8 +1076,11 @@ a { text-decoration: none; }
     padding: 16px 24px;
     border-top: 1px solid rgba(0,0,0,0.08);
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    gap: 0;
   }
-  .nav-links.open { display: flex; }
+  .nav-left.open, .nav-right.open { display: flex; }
+  /* Stack both nav groups into one mobile menu */
+  .nav-right.open { border-top: none; padding-top: 0; box-shadow: none; }
   .nav-dropdown {
     position: static;
     opacity: 1;
@@ -1079,11 +1090,14 @@ a { text-decoration: none; }
     background: rgba(0,0,0,0.03);
     margin: 4px 0;
     display: none;
+    min-width: 100%;
   }
-  .nav-links > li.dropdown-open .nav-dropdown { display: block; }
+  .nav-left > li.dropdown-open .nav-dropdown,
+  .nav-right > li.dropdown-open .nav-dropdown { display: block; }
   .nav-dropdown a { color: var(--gray-600); }
   .nav-dropdown a:hover { background: rgba(111,30,28,0.05); color: var(--burgundy); }
   .mobile-toggle { display: flex; }
+  .nav-logo { margin: 0; }
   .hero { min-height: 90vh; }
   .services, .areas, .why-mega, .prop-mgmt, .testimonials { padding: 80px 24px; }
   .services-grid { grid-template-columns: 1fr; }

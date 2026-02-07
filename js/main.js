@@ -12,13 +12,15 @@ window.addEventListener('scroll', () => {
 
 // Mobile menu toggle
 function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  navLinks.classList.toggle('open');
+  const navLeft = document.querySelector('.nav-left');
+  const navRight = document.querySelector('.nav-right');
+  if (navLeft) navLeft.classList.toggle('open');
+  if (navRight) navRight.classList.toggle('open');
 }
 
 // Mobile dropdown toggle
 document.addEventListener('click', (e) => {
-  const dropdownToggle = e.target.closest('.nav-links > li > a[data-dropdown]');
+  const dropdownToggle = e.target.closest('[data-dropdown]');
   if (dropdownToggle && window.innerWidth <= 768) {
     e.preventDefault();
     const li = dropdownToggle.parentElement;
@@ -28,10 +30,12 @@ document.addEventListener('click', (e) => {
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
-  const navLinks = document.querySelector('.nav-links');
+  const navLeft = document.querySelector('.nav-left');
+  const navRight = document.querySelector('.nav-right');
   const toggle = document.querySelector('.mobile-toggle');
-  if (navLinks && navLinks.classList.contains('open') && !navLinks.contains(e.target) && !toggle.contains(e.target)) {
-    navLinks.classList.remove('open');
+  if (navLeft && navLeft.classList.contains('open') && !navLeft.contains(e.target) && !navRight.contains(e.target) && !toggle.contains(e.target)) {
+    navLeft.classList.remove('open');
+    if (navRight) navRight.classList.remove('open');
   }
 });
 
