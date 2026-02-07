@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Much More Would You Make at Mega Realty? | Commission Calculator</title>
+<meta name="description" content="Calculate exactly how much more you'd earn with Mega Realty's 100% commission model vs your current brokerage. See the real numbers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ========== CALCULATOR FUNNEL PAGE ========== */
+.calc-page {
+  min-height: 100vh;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-top-bar {
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.calc-top-bar a {
+  color: rgba(255,255,255,0.4);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.calc-top-bar a:hover { color: var(--white); }
+
+.calc-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.calc-container {
+  max-width: 960px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.calc-left h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.calc-left h1 em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.calc-left .subtext {
+  font-size: 17px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+.calc-selling-points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calc-sp {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.calc-sp-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: rgba(138, 199, 17, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.calc-sp-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+
+.calc-sp-text strong {
+  color: var(--white);
+}
+
+/* CALCULATOR CARD */
+.calc-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 36px;
+}
+
+.calc-card h2 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.calc-field {
+  margin-bottom: 20px;
+}
+
+.calc-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.calc-field input, .calc-field select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: var(--white);
+  font-size: 16px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.calc-field input:focus, .calc-field select:focus {
+  border-color: var(--green);
+}
+
+.calc-field select option {
+  background: var(--black);
+  color: var(--white);
+}
+
+.calc-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--green);
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.calc-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(138, 199, 17, 0.3);
+}
+
+/* RESULTS */
+.calc-results {
+  display: none;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.calc-results.show { display: block; }
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.result-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+
+.result-value {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.result-row.highlight {
+  padding: 16px;
+  margin: 16px -16px 0;
+  background: rgba(138, 199, 17, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(138, 199, 17, 0.2);
+  border-bottom: 1px solid rgba(138, 199, 17, 0.2);
+}
+
+.result-row.highlight .result-label {
+  font-weight: 700;
+  color: var(--green);
+}
+
+.result-row.highlight .result-value {
+  font-size: 28px;
+  color: var(--green);
+}
+
+.calc-cta {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 12px;
+  background: var(--burgundy);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+.calc-cta:hover {
+  background: var(--burgundy-light);
+  transform: translateY(-2px);
+}
+
+.calc-note {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .calc-container { grid-template-columns: 1fr; gap: 32px; }
+  .calc-left { text-align: center; }
+  .calc-selling-points { align-items: center; }
+  .calc-main { padding: 100px 20px 40px; }
+}
+</style>
+</head>
+<body class="calc-page">
+
+<div class="calc-top-bar">
+  <a href="index.html"><img src="images/logo.png" alt="Mega Realty" style="height:28px;filter:brightness(0) invert(1);opacity:0.6"></a>
+  <a href="careers.html">← Back to Careers</a>
+</div>
+
+<div class="calc-main">
+  <div class="calc-container">
+
+    <!-- LEFT SIDE -->
+    <div class="calc-left">
+      <h1>How much more would you make at <em>Mega?</em></h1>
+      <p class="subtext">Most agents leave thousands on the table every year in commission splits. Plug in your numbers and see the difference.</p>
+      
+      <div class="calc-selling-points">
+        <div class="calc-sp">
+          <div class="calc-sp-icon">✓</div>
+          <div class="calc-sp-text"><strong>100% commission</strong> on every deal — no splits, no caps, no surprises</div>
+        </div>
+        <div class="calc-sp">
+          <div class="calc-sp-icon">✓</div>
+          <div class="calc-sp-text"><strong>First year free</strong> — $0 monthly fees for your entire first year</div>
+        </div>
+        <div class="calc-sp">
+          <div class="calc-sp-icon">✓</div>
+          <div class="calc-sp-text"><strong>E&O insurance included</strong> — no extra policies to buy</div>
+        </div>
+        <div class="calc-sp">
+          <div class="calc-sp-icon">✓</div>
+          <div class="calc-sp-text"><strong>Full broker support</strong> — experienced team on every deal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALCULATOR CARD -->
+    <div class="calc-card">
+      <h2>Do The Math</h2>
+
+      <div class="calc-field">
+        <label>Average Sale Price</label>
+        <input type="text" id="f-price" placeholder="$350,000" value="350000" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+      </div>
+
+      <div class="calc-field">
+        <label>Your Commission Rate (%)</label>
+        <input type="text" id="f-rate" placeholder="2.5" value="2.5">
+      </div>
+
+      <div class="calc-field">
+        <label>Deals Per Year</label>
+        <input type="text" id="f-deals" placeholder="12" value="12" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+      </div>
+
+      <div class="calc-field">
+        <label>Current Brokerage Split</label>
+        <select id="f-split">
+          <option value="70">70/30 Split</option>
+          <option value="75">75/25 Split</option>
+          <option value="80" selected>80/20 Split</option>
+          <option value="85">85/15 Split</option>
+          <option value="90">90/10 Split</option>
+        </select>
+      </div>
+
+      <button class="calc-btn" onclick="calculateSavings()">Calculate My Savings →</button>
+
+      <div class="calc-results" id="results">
+        <div class="result-row">
+          <span class="result-label">Gross commission per deal</span>
+          <span class="result-value" id="r-gross">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Current brokerage take-home</span>
+          <span class="result-value" id="r-current">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Mega Realty take-home</span>
+          <span class="result-value" id="r-mega" style="color:var(--green)">—</span>
+        </div>
+        <div class="result-row highlight">
+          <span class="result-label">You'd earn more per year</span>
+          <span class="result-value" id="r-diff">—</span>
+        </div>
+        <a href="careers.html" class="calc-cta">Join Mega Realty — First Year Free →</a>
+        <div class="calc-note">No commitment needed. Let's just talk.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function calculateSavings() {
+  const price = parseFloat(document.getElementById('f-price').value) || 350000;
+  const rate = parseFloat(document.getElementById('f-rate').value) || 2.5;
+  const deals = parseInt(document.getElementById('f-deals').value) || 12;
+  const split = parseInt(document.getElementById('f-split').value) || 80;
+
+  const grossPerDeal = price * (rate / 100);
+  const currentPerDeal = grossPerDeal * (split / 100);
+  const megaPerDeal = grossPerDeal - 550;
+
+  const currentAnnual = currentPerDeal * deals;
+  const megaAnnual = (megaPerDeal * deals) - (100 * 12);
+  const diff = megaAnnual - currentAnnual;
+
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+
+  document.getElementById('r-gross').textContent = fmt(grossPerDeal);
+  document.getElementById('r-current').textContent = fmt(currentAnnual) + '/yr';
+  document.getElementById('r-mega').textContent = fmt(megaAnnual) + '/yr';
+  document.getElementById('r-diff').textContent = '+' + fmt(diff);
+
+  document.getElementById('results').classList.add('show');
+}
+</script>
+</body>
+</html>

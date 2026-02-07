@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mega Investor Network | Learn Wholesaling & Access Exclusive Deals</title>
+<meta name="description" content="Join the Mega Investor Network — Pennsylvania's #1 real estate wholesaling community. Free education, live deal flow, and a network of serious investors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ========== INVESTOR LANDING PAGE ========== */
+
+.inv-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  overflow: hidden;
+}
+
+.inv-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(111, 30, 28, 0.92) 0%, rgba(26, 25, 23, 0.85) 40%, rgba(26, 25, 23, 0.95) 100%);
+  z-index: 1;
+}
+
+.inv-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=1920&q=80') center/cover no-repeat;
+  z-index: -1;
+  transform: scale(1.05);
+  animation: slowZoom 25s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
+}
+
+.inv-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 850px;
+  padding: 0 32px;
+}
+
+.inv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(138, 199, 17, 0.15);
+  border: 1px solid rgba(138, 199, 17, 0.3);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.inv-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.inv-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.inv-hero h1 em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.inv-hero .subhead {
+  font-size: 19px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+
+.inv-hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-green-big {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 40px;
+  background: var(--green);
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(138, 199, 17, 0.3);
+}
+
+.btn-green-big:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(138, 199, 17, 0.4);
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 32px;
+  background: transparent;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-white:hover {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.05);
+}
+
+.inv-proof {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.inv-proof-item {
+  text-align: center;
+}
+
+.inv-proof-num {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.inv-proof-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+/* ========== PROBLEM / AGITATE ========== */
+.inv-problem {
+  padding: 100px 48px;
+  background: var(--white);
+}
+
+.inv-problem-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.inv-problem h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: var(--gray-800);
+  margin-bottom: 24px;
+  line-height: 1.15;
+}
+
+.inv-problem h2 em {
+  font-style: italic;
+  color: var(--burgundy);
+}
+
+.inv-problem p {
+  font-size: 17px;
+  color: var(--gray-600);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.pain-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.pain-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: left;
+}
+
+.pain-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.pain-card h3 {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 8px;
+}
+
+.pain-card p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ========== WHAT YOU GET ========== */
+.inv-features {
+  padding: 100px 48px;
+  background: var(--off-white);
+}
+
+.inv-features-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.inv-features .section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.inv-features .section-label {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(111, 30, 28, 0.08);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--burgundy);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.inv-features h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: var(--gray-800);
+  line-height: 1.15;
+}
+
+.tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.tier-card {
+  background: var(--white);
+  border-radius: 20px;
+  border: 2px solid var(--gray-200);
+  padding: 40px 36px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+.tier-card.featured {
+  border-color: var(--burgundy);
+  box-shadow: 0 20px 60px rgba(111, 30, 28, 0.12);
+}
+
+.tier-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 20px;
+  background: var(--burgundy);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.tier-name {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--burgundy);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.tier-price {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+}
+
+.tier-price span {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.tier-desc {
+  font-size: 15px;
+  color: var(--gray-600);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.tier-features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.tier-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 1.5;
+}
+
+.tier-check {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  background: rgba(138, 199, 17, 0.12);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 1px;
+}
+
+.tier-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+.tier-btn-primary {
+  background: var(--burgundy);
+  color: var(--white);
+}
+
+.tier-btn-primary:hover {
+  background: var(--burgundy-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(111, 30, 28, 0.25);
+}
+
+.tier-btn-secondary {
+  background: var(--off-white);
+  color: var(--gray-800);
+  border: 2px solid var(--gray-200);
+}
+
+.tier-btn-secondary:hover {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+}
+
+/* ========== CURRICULUM ========== */
+.inv-curriculum {
+  padding: 100px 48px;
+  background: var(--white);
+}
+
+.inv-curriculum-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.inv-curriculum .section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.module-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.module-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--off-white);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.module-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  border-color: transparent;
+}
+
+.module-num {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: var(--burgundy);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.module-info h3 {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+}
+
+.module-info p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.module-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(138, 199, 17, 0.1);
+  color: var(--green-dark);
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.module-tag.pro {
+  background: rgba(111, 30, 28, 0.08);
+  color: var(--burgundy);
+}
+
+/* ========== TESTIMONIALS / SOCIAL PROOF ========== */
+.inv-social {
+  padding: 100px 48px;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.inv-social::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(111, 30, 28, 0.3) 0%, transparent 60%);
+}
+
+.inv-social-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.inv-social h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 48px;
+  line-height: 1.15;
+}
+
+.inv-testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.inv-testimonial {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: left;
+}
+
+.inv-testimonial-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.inv-testimonial-name {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.inv-testimonial-role {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ========== FAQ ========== */
+.inv-faq {
+  padding: 100px 48px;
+  background: var(--white);
+}
+
+.inv-faq-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.inv-faq .section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.inv-faq-item {
+  border-bottom: 1px solid var(--gray-200);
+  padding: 20px 0;
+}
+
+.inv-faq-q {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gray-800);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inv-faq-q::after {
+  content: '+';
+  font-size: 22px;
+  color: var(--burgundy);
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.inv-faq-item.open .inv-faq-q::after {
+  transform: rotate(45deg);
+}
+
+.inv-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.inv-faq-item.open .inv-faq-a {
+  max-height: 200px;
+  padding-top: 12px;
+}
+
+.inv-faq-a p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.65;
+}
+
+/* ========== FINAL CTA ========== */
+.inv-final-cta {
+  padding: 100px 48px;
+  background: var(--burgundy);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.inv-final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, transparent 60%);
+}
+
+.inv-final-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.inv-final-cta h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.inv-final-cta p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.inv-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .inv-hero { min-height: 90vh; }
+  .inv-hero-content { padding: 0 20px; }
+  .inv-proof { gap: 24px; }
+  .pain-points { grid-template-columns: 1fr; }
+  .tiers { grid-template-columns: 1fr; }
+  .inv-testimonials { grid-template-columns: 1fr; }
+  .inv-problem, .inv-features, .inv-curriculum, .inv-social, .inv-faq, .inv-final-cta { padding: 72px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="#" data-dropdown>Buying <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="buyer-representation.html">Buyer Representation</a><a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a><a href="moving-guide.html">Moving Guide</a><a href="mortgage-calculators.html">Mortgage Calculators</a></div></li>
+    <li><a href="#" data-dropdown>Selling <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="selling-your-home.html">Selling Your Home</a><a href="value-of-sellers-agent.html">Value of a Seller's Agent</a><a href="virtual-market-analysis.html">Virtual Market Analysis</a><a href="moving-checklist.html">Moving Checklist</a></div></li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="property-management.html">Property Management</a></li>
+    <li><a href="investors.html">Investors</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="careers.html" class="nav-cta">Join Our Team →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="inv-hero">
+  <div class="inv-hero-bg"></div>
+  <div class="inv-hero-content">
+    <div class="inv-badge">Now Accepting Members</div>
+    <h1>Learn to Wholesale.<br>Access <em>Real Deals.</em></h1>
+    <p class="subhead">Join Pennsylvania's fastest-growing real estate investor community. Free education, live deal flow, and a network that actually closes.</p>
+    <div class="inv-hero-buttons">
+      <a href="#tiers" class="btn-green-big">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Join Free →
+      </a>
+      <a href="#curriculum" class="btn-outline-white">See What's Inside ↓</a>
+    </div>
+    <div class="inv-proof">
+      <div class="inv-proof-item">
+        <div class="inv-proof-num">$2.4M+</div>
+        <div class="inv-proof-label">In Deals Closed</div>
+      </div>
+      <div class="inv-proof-item">
+        <div class="inv-proof-num">150+</div>
+        <div class="inv-proof-label">Active Members</div>
+      </div>
+      <div class="inv-proof-item">
+        <div class="inv-proof-num">6</div>
+        <div class="inv-proof-label">PA Regions Covered</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM / AGITATE -->
+<section class="inv-problem">
+  <div class="inv-problem-inner">
+    <h2>Wholesaling Is Simple.<br>But <em>Not Easy.</em></h2>
+    <p>You've watched the YouTube videos. You've read the books. But when it comes time to actually find a deal, negotiate with a seller, and close — you're stuck. That's because wholesaling isn't about knowledge. It's about having the right system, the right network, and access to real opportunities.</p>
+
+    <div class="pain-points">
+      <div class="pain-card">
+        <div class="pain-icon">
+          <svg width="32" height="32" fill="none" stroke="var(--burgundy)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <h3>Can't Find Deals</h3>
+        <p>You're competing for the same expired listings and driving for dollars routes as everyone else. The good deals are going to people with better networks.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">
+          <svg width="32" height="32" fill="none" stroke="var(--burgundy)" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="8" x2="23" y2="8"/></svg>
+        </div>
+        <h3>No Buyers List</h3>
+        <p>You found a deal but have no one to assign it to. Building a real buyers list takes months of networking you haven't done yet.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">
+          <svg width="32" height="32" fill="none" stroke="var(--burgundy)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Afraid of Mistakes</h3>
+        <p>One bad contract or misjudged ARV can cost you thousands. You need someone who's been there to review your deals before you commit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="inv-features" id="tiers">
+  <div class="inv-features-inner">
+    <div class="section-header">
+      <div class="section-label">Membership Tiers</div>
+      <h2>Choose Your Level</h2>
+    </div>
+
+    <div class="tiers">
+      <!-- FREE TIER -->
+      <div class="tier-card">
+        <div class="tier-name">Community</div>
+        <div class="tier-price">Free</div>
+        <div class="tier-desc">Everything you need to start learning and networking with other investors.</div>
+        <div class="tier-features">
+          <div class="tier-feature"><div class="tier-check">✓</div>Full wholesaling course (6 modules)</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Community discussion feed</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Weekly PA market updates</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Resource library (scripts, checklists)</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Networking with 150+ investors</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Monthly live Q&A session</div>
+        </div>
+        <a href="#" class="tier-btn tier-btn-secondary">Join Free →</a>
+      </div>
+
+      <!-- PAID TIER -->
+      <div class="tier-card featured">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-name">Inner Circle</div>
+        <div class="tier-price">$149 <span>/month</span></div>
+        <div class="tier-desc">For serious investors who want deal access, mentorship, and a real competitive edge.</div>
+        <div class="tier-features">
+          <div class="tier-feature"><div class="tier-check">✓</div><strong>Everything in Community, plus:</strong></div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Exclusive live deal flow (PA-focused)</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Co-wholesaling with Mega Realty agents</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Weekly live deal review calls</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Contract templates & legal guides</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Private inner circle chat</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Direct access to Mega's buyer network</div>
+          <div class="tier-feature"><div class="tier-check">✓</div>Fast-track to Mega Realty agent license</div>
+        </div>
+        <a href="#" class="tier-btn tier-btn-primary">Join Inner Circle →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="inv-curriculum" id="curriculum">
+  <div class="inv-curriculum-inner">
+    <div class="section-header">
+      <div class="section-label" style="display:inline-block;padding:6px 16px;background:rgba(111,30,28,0.08);border-radius:100px;font-size:12px;font-weight:700;color:var(--burgundy);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">Free Course</div>
+      <h2 style="font-family:var(--font-heading);font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--gray-800);line-height:1.15">The Wholesaling Playbook</h2>
+      <p style="font-size:17px;color:var(--gray-600);margin-top:12px">A complete, no-fluff course included free with every membership.</p>
+    </div>
+
+    <div class="module-list">
+      <div class="module-card">
+        <div class="module-num">1</div>
+        <div class="module-info">
+          <h3>Wholesaling Fundamentals</h3>
+          <p>What wholesaling actually is, how the money flows, legal requirements in PA, and why it works.</p>
+          <span class="module-tag">Free</span>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-num">2</div>
+        <div class="module-info">
+          <h3>Finding Motivated Sellers</h3>
+          <p>Driving for dollars, skip tracing, direct mail, cold calling scripts, and how to find off-market deals before anyone else.</p>
+          <span class="module-tag">Free</span>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-num">3</div>
+        <div class="module-info">
+          <h3>Running Comps & Analyzing Deals</h3>
+          <p>How to determine ARV, estimate repair costs, calculate your max offer, and know if a deal is worth pursuing.</p>
+          <span class="module-tag">Free</span>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-num">4</div>
+        <div class="module-info">
+          <h3>Contracts & Negotiations</h3>
+          <p>Assignment contracts, double closes, negotiation tactics, and how to lock up deals with confidence.</p>
+          <span class="module-tag">Free</span>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-num">5</div>
+        <div class="module-info">
+          <h3>Building Your Buyers List</h3>
+          <p>Where to find cash buyers, how to qualify them, and building a list that lets you move deals in 48 hours.</p>
+          <span class="module-tag">Free</span>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-num">6</div>
+        <div class="module-info">
+          <h3>Closing Your First Deal</h3>
+          <p>The step-by-step process from signed contract to assignment fee in your bank account. Title companies, earnest money, and timeline management.</p>
+          <span class="module-tag">Free</span>
+        </div>
+      </div>
+      <div class="module-card" style="border-color:var(--burgundy);border-width:2px">
+        <div class="module-num" style="background:var(--green)">+</div>
+        <div class="module-info">
+          <h3>Live Deal Flow & Co-Wholesaling</h3>
+          <p>Inner Circle members get access to real deals from Mega Realty's network — plus the ability to JV on assignments with our agents.</p>
+          <span class="module-tag pro">Inner Circle Only</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="inv-social">
+  <div class="inv-social-inner">
+    <h2>What Members Are Saying</h2>
+    <div class="inv-testimonials">
+      <div class="inv-testimonial">
+        <div class="inv-testimonial-text">"I closed my first wholesale deal within 60 days of joining. The deal flow alone is worth 10x the membership fee. Having Mega's agent network as buyers is a cheat code."</div>
+        <div class="inv-testimonial-name">Marcus T.</div>
+        <div class="inv-testimonial-role">Inner Circle Member · Philadelphia</div>
+      </div>
+      <div class="inv-testimonial">
+        <div class="inv-testimonial-text">"I was watching YouTube for months and getting nowhere. The free course here gave me more actionable info in a week than everything else combined. Now I'm closing deals."</div>
+        <div class="inv-testimonial-name">Aisha R.</div>
+        <div class="inv-testimonial-role">Community Member · Lehigh Valley</div>
+      </div>
+      <div class="inv-testimonial">
+        <div class="inv-testimonial-text">"The weekly deal review calls saved me from a bad contract that would've cost me $12K. Having experienced eyes on your deals before you commit is invaluable."</div>
+        <div class="inv-testimonial-name">Jake M.</div>
+        <div class="inv-testimonial-role">Inner Circle Member · Montgomery County</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="inv-faq">
+  <div class="inv-faq-inner">
+    <div class="section-header">
+      <h2 style="font-family:var(--font-heading);font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--gray-800);line-height:1.15">Common Questions</h2>
+    </div>
+
+    <div class="inv-faq-item">
+      <div class="inv-faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need experience to join?</div>
+      <div class="inv-faq-a"><p>Not at all. The free course is designed for complete beginners. Whether you've never done a deal or you're looking to scale, there's value here for you.</p></div>
+    </div>
+    <div class="inv-faq-item">
+      <div class="inv-faq-q" onclick="this.parentElement.classList.toggle('open')">Is the deal flow only in Philadelphia?</div>
+      <div class="inv-faq-a"><p>No — we cover all of Pennsylvania through Mega Realty's statewide agent network. You'll see deals from Philly, the suburbs, Lehigh Valley, Poconos, Central PA, and Western PA.</p></div>
+    </div>
+    <div class="inv-faq-item">
+      <div class="inv-faq-q" onclick="this.parentElement.classList.toggle('open')">What does co-wholesaling with Mega agents mean?</div>
+      <div class="inv-faq-a"><p>Inner Circle members can partner (JV) with Mega Realty agents on assignments. You bring the deal, our agents bring the buyers — and you split the assignment fee. It's the fastest way to close when you're building your own buyers list.</p></div>
+    </div>
+    <div class="inv-faq-item">
+      <div class="inv-faq-q" onclick="this.parentElement.classList.toggle('open')">Can I cancel the Inner Circle anytime?</div>
+      <div class="inv-faq-a"><p>Yes — cancel anytime with no penalties. You'll keep access to the free community and course, you just lose the Inner Circle benefits.</p></div>
+    </div>
+    <div class="inv-faq-item">
+      <div class="inv-faq-q" onclick="this.parentElement.classList.toggle('open')">What's the fast-track to Mega Realty agent license?</div>
+      <div class="inv-faq-a"><p>Inner Circle members who decide to get licensed can join Mega Realty with our first-year-free promotion and get priority mentorship from our top-producing agents. Many wholesalers eventually get licensed to expand their business — we make that transition seamless.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="inv-final-cta">
+  <div class="inv-final-inner">
+    <div class="inv-urgency">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Limited Inner Circle spots available
+    </div>
+    <h2>Stop Watching.<br>Start Closing.</h2>
+    <p>Every day you wait is a deal someone else is closing. Join the Mega Investor Network today — start with the free community or go all-in with the Inner Circle.</p>
+    <div class="inv-hero-buttons">
+      <a href="#" class="btn-green-big">Join Free Community →</a>
+      <a href="#" class="btn-outline-white">Join Inner Circle — $149/mo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a><p>Pennsylvania's premier real estate firm — serving all of Pennsylvania.</p></div>
+    <div class="footer-col"><h4>Services</h4><a href="buyer-representation.html">Buying</a><a href="selling-your-home.html">Selling</a><a href="#">Leasing</a><a href="property-management.html">Property Management</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="agents.html">Our Agents</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:2159470575">215-947-0575</a><a href="mailto:contact@mymegarealty.com">contact@mymegarealty.com</a><a href="#">1925 Old York Rd<br>Abington, PA 19001</a>
+      <a href="#">1923 Welsh Rd<br>Philadelphia, PA 19115</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Mega Realty. All rights reserved. <a href="privacy.html" style="color:var(--gray-400);font-size:13px">Privacy Policy</a></span><div class="footer-social"><a href="https://www.facebook.com/MegaRealty/" target="_blank">f</a><a href="https://www.instagram.com/megarealty_/" target="_blank">ig</a><a href="https://www.linkedin.com/in/mega-realty/" target="_blank">in</a></div></div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
