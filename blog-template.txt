@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TITLE | Mega Realty Blog</title>
+<meta name="description" content="METADESC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<style>
+.post-hero {
+  background: linear-gradient(135deg, rgba(111, 30, 28, 0.92) 0%, rgba(26, 25, 23, 0.88) 100%),
+    url('HEROIMG') center/cover no-repeat;
+  padding: 160px 48px 80px;
+  text-align: center;
+}
+.post-hero .blog-tag { margin-bottom: 16px; }
+.post-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--white);
+  max-width: 750px;
+  margin: 0 auto 16px;
+  line-height: 1.15;
+}
+.post-hero .post-meta {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+}
+.post-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+.post-body h2 {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin: 40px 0 16px;
+  line-height: 1.25;
+}
+.post-body h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin: 32px 0 12px;
+}
+.post-body p {
+  font-size: 17px;
+  color: var(--gray-700);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.post-body ul, .post-body ol {
+  margin: 0 0 20px 24px;
+  font-size: 17px;
+  color: var(--gray-700);
+  line-height: 1.8;
+}
+.post-body li { margin-bottom: 8px; }
+.post-body strong { color: var(--gray-800); }
+.post-body blockquote {
+  border-left: 4px solid var(--burgundy);
+  margin: 28px 0;
+  padding: 16px 24px;
+  background: var(--off-white);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: var(--gray-700);
+}
+.post-cta-box {
+  background: linear-gradient(135deg, var(--burgundy) 0%, #4a1210 100%);
+  border-radius: 16px;
+  padding: 36px;
+  text-align: center;
+  margin: 48px 0;
+}
+.post-cta-box h3 {
+  font-family: var(--font-heading);
+  color: var(--white);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.post-cta-box p { color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.post-cta-box a {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--green);
+  color: var(--black);
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+.post-cta-box a:hover { transform: translateY(-2px); }
+.post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--burgundy);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+.post-back:hover { gap: 10px; }
+@media (max-width: 768px) {
+  .post-hero { padding: 140px 24px 60px; }
+  .post-body { padding: 40px 20px 60px; }
+}
+</style>
+</head>
+<body>
