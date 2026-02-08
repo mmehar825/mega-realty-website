@@ -42,16 +42,29 @@
   <div class="hero-grain"></div>
   <div class="hero-content">
     <div class="hero-badge">Philadelphia's Premier Real Estate Firm</div>
-    <h1>Real Estate <em>Worth</em><br>Investing In.</h1>
-    <p class="hero-sub">Philadelphia's trusted real estate firm for buying, selling, leasing, and property management across the greater Philadelphia area.</p>
-    <div class="hero-buttons">
-      <a href="#" class="btn-primary">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <h1>What's Your Home <em>Worth?</em></h1>
+    <p class="hero-sub">Get a free, instant home value estimate powered by real market data across all of Pennsylvania.</p>
+    
+    <div class="hero-search">
+      <div class="hero-search-bar">
+        <svg class="hero-search-icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <input type="text" id="hero-address" placeholder="Enter your property address..." autocomplete="off">
+        <button class="hero-search-btn" onclick="goToValuation()">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Get Estimate</span>
+        </button>
+      </div>
+      <div class="hero-search-suggestions" id="suggestions"></div>
+    </div>
+
+    <div class="hero-links">
+      <a href="listings.html" class="hero-link">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         Search Properties
       </a>
-      <a href="careers.html" class="btn-secondary">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Join Our Team
+      <a href="careers.html" class="hero-link">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Join Our Team — First Year Free
       </a>
     </div>
   </div>
@@ -385,5 +398,60 @@
 </footer>
 
 <script src="js/main.js"></script>
+
+<!-- Google Places Autocomplete -->
+<!-- IMPORTANT: Replace YOUR_API_KEY with your actual Google Maps API key -->
+<!-- Enable "Places API" and "Maps JavaScript API" in Google Cloud Console -->
+<script>
+let autocomplete;
+let selectedAddress = '';
+
+function initAutocomplete() {
+  const input = document.getElementById('hero-address');
+  const suggestionsDiv = document.getElementById('suggestions');
+  
+  autocomplete = new google.maps.places.Autocomplete(input, {
+    types: ['address'],
+    componentRestrictions: { country: 'us' },
+    fields: ['formatted_address', 'address_components', 'geometry']
+  });
+
+  // Hide the default Google dropdown — we'll use our own styling
+  // Actually, let's use Google's built-in dropdown but style it
+  autocomplete.addListener('place_changed', function() {
+    const place = autocomplete.getPlace();
+    if (place && place.formatted_address) {
+      selectedAddress = place.formatted_address;
+      input.value = selectedAddress;
+    }
+  });
+
+  // Also allow Enter key to trigger
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      // Small delay to let autocomplete fill the value
+      setTimeout(goToValuation, 200);
+    }
+  });
+}
+
+function goToValuation() {
+  const input = document.getElementById('hero-address');
+  const address = selectedAddress || input.value.trim();
+  
+  if (!address) {
+    input.focus();
+    input.style.borderColor = '#ff4444';
+    setTimeout(() => input.style.borderColor = '', 2000);
+    return;
+  }
+
+  // Redirect to virtual market analysis page with address
+  const encoded = encodeURIComponent(address);
+  window.location.href = 'virtual-market-analysis.html?address=' + encoded;
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlm5E3PAILMoT7wnY2qGb3KBX73S11uy0&libraries=places&callback=initAutocomplete" async defer></script>
 </body>
 </html>
