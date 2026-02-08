@@ -163,28 +163,48 @@ document.getElementById('cmaForm').addEventListener('submit', function(e) {
 
 // Initialize map if address is present
 function initMap() {
-  if (!address) return;
+  if (!address) {
+    document.getElementById('mapSection').style.display = 'none';
+    return;
+  }
   const decoded = decodeURIComponent(address);
-  const geocoder = new google.maps.Geocoder();
   
-  geocoder.geocode({ address: decoded }, function(results, status) {
-    if (status === 'OK' && results[0]) {
-      const map = new google.maps.Map(document.getElementById('addressMap'), {
-        zoom: 17,
-        center: results[0].geometry.location,
-        mapTypeId: 'satellite',
-        disableDefaultUI: true,
-        zoomControl: true,
-        styles: []
-      });
-      new google.maps.Marker({
-        map: map,
-        position: results[0].geometry.location
-      });
-    }
-  });
+  try {
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: decoded }, function(results, status) {
+      if (status === 'OK' && results[0]) {
+        const map = new google.maps.Map(document.getElementById('addressMap'), {
+          zoom: 18,
+          center: results[0].geometry.location,
+          mapTypeId: 'satellite',
+          disableDefaultUI: true,
+          zoomControl: true
+        });
+        new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      } else {
+        // Fallback to static map embed
+        showStaticMap(decoded);
+      }
+    });
+  } catch(e) {
+    showStaticMap(decoded);
+  }
 }
+
+function showStaticMap(addr) {
+  const encoded = encodeURIComponent(addr);
+  document.getElementById('addressMap').innerHTML = '<iframe src="https://www.google.com/maps?q=' + encoded + '&output=embed&z=18&t=k" style="width:100%;height:100%;border:none;border-radius:16px" allowfullscreen loading="lazy"></iframe>';
+}
+
+// If Google Maps fails to load, use iframe fallback
+window.gm_authFailure = function() {
+  if (address) showStaticMap(decodeURIComponent(address));
+};
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlm5E3PAILMoT7wnY2qGb3KBX73S11uy0&callback=initMap" async defer></script>
+<style>.gm-err-container,.gm-err-message,.dismissButton{display:none!important}</style>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlm5E3PAILMoT7wnY2qGb3KBX73S11uy0&callback=initMap" async defer onerror="if(address)showStaticMap(decodeURIComponent(address))"></script>
 </body>
 </html>
