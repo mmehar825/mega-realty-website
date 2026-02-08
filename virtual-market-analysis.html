@@ -28,12 +28,31 @@
   </ul>
 </nav>
 
-<section class="page-hero">
+<section class="page-hero" style="padding-bottom:40px">
   <div class="page-hero-content">
-    <h1>What's Your Home Worth?</h1>
+    <p style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;font-weight:600">Home Value Estimate</p>
+    <h1 id="heroAddress" style="font-size:clamp(28px,4vw,48px)">What's Your Home Worth?</h1>
     <p>Request a free, personalized Comparative Market Analysis from a Mega Realty agent — no obligation.</p>
   </div>
 </section>
+
+<!-- Address Display Banner (shown when address is passed) -->
+<div id="addressBanner" style="display:none;background:var(--white);border-bottom:1px solid var(--gray-200)">
+  <div style="max-width:800px;margin:0 auto;padding:32px 24px;text-align:center">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px">
+      <div style="width:44px;height:44px;background:rgba(111,30,28,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center">
+        <svg width="22" height="22" fill="none" stroke="#6f1e1c" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h2 id="displayAddress" style="font-family:var(--font-heading);font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--gray-800);margin:0"></h2>
+    </div>
+    <p style="color:var(--gray-600);font-size:15px;max-width:500px;margin:0 auto">Online estimates can vary by 5–15%. Get a professional CMA from a licensed Mega Realty agent for a data-backed valuation you can trust.</p>
+  </div>
+</div>
+
+<!-- Map Section (shown when address is passed) -->
+<div id="mapSection" style="display:none;max-width:800px;margin:0 auto;padding:24px 24px 0">
+  <div id="addressMap" style="width:100%;height:300px;border-radius:16px;overflow:hidden;border:1px solid var(--gray-200)"></div>
+</div>
 
 <section class="article-section">
   <div class="article-content">
@@ -109,6 +128,28 @@
 </footer>
 <script src="js/main.js"></script>
 <script>
+// Auto-fill address from URL parameter
+const params = new URLSearchParams(window.location.search);
+const address = params.get('address');
+
+if (address) {
+  const decoded = decodeURIComponent(address);
+  
+  // Fill the form field
+  document.getElementById('cmaAddress').value = decoded;
+  
+  // Show the address banner
+  document.getElementById('addressBanner').style.display = 'block';
+  document.getElementById('displayAddress').textContent = decoded.toUpperCase();
+  
+  // Update hero title
+  document.getElementById('heroAddress').textContent = 'Your Home Value Estimate';
+  
+  // Show map section and initialize map
+  document.getElementById('mapSection').style.display = 'block';
+}
+
+// Form submit handler
 document.getElementById('cmaForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = this.querySelector('button');
@@ -116,6 +157,31 @@ document.getElementById('cmaForm').addEventListener('submit', function(e) {
   btn.style.background = '#6ea00e';
   setTimeout(() => { btn.textContent = 'Request My Free CMA →'; btn.style.background = ''; this.reset(); }, 3000);
 });
+
+// Initialize map if address is present
+function initMap() {
+  if (!address) return;
+  const decoded = decodeURIComponent(address);
+  const geocoder = new google.maps.Geocoder();
+  
+  geocoder.geocode({ address: decoded }, function(results, status) {
+    if (status === 'OK' && results[0]) {
+      const map = new google.maps.Map(document.getElementById('addressMap'), {
+        zoom: 17,
+        center: results[0].geometry.location,
+        mapTypeId: 'satellite',
+        disableDefaultUI: true,
+        zoomControl: true,
+        styles: []
+      });
+      new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location
+      });
+    }
+  });
+}
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlm5E3PAILMoT7wnY2qGb3KBX73S11uy0&callback=initMap" async defer></script>
 </body>
 </html>
