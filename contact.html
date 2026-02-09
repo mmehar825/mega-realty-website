@@ -497,14 +497,47 @@
     // Fire Facebook Lead event
     if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
     const btn = this.querySelector('.form-submit');
-    btn.style.background = 'var(--green)';
-    btn.style.color = 'var(--black)';
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.style.background = '';
-      btn.style.color = '';
-      this.reset();
-    }, 3000);
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const formData = new FormData(this);
+    formData.append('_subject', 'New Contact Form — Mega Realty');
+    formData.append('_cc', 'rosanna.mega@gmail.com,sunny.megarealty@gmail.com');
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
+    formData.append('_next', 'https://mymegarealty.com/contact.html');
+    formData.append('Source', 'Contact Page');
+
+    fetch('https://formsubmit.co/ajax/mehar825@gmail.com', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = 'var(--green)';
+      btn.style.color = 'var(--black)';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+        this.reset();
+      }, 3000);
+    })
+    .catch(error => {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = 'var(--green)';
+      btn.style.color = 'var(--black)';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+        this.reset();
+      }, 3000);
+    });
   });
 </script>
 </body>

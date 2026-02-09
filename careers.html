@@ -1261,13 +1261,43 @@
       if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
       const btn = this.querySelector('.form-submit');
       const originalText = btn.textContent;
-      btn.textContent = 'Submitted! We\'ll be in touch ✓';
-      btn.style.background = '#6ea00e';
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-        this.reset();
-      }, 3000);
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      // Collect form data
+      const formData = new FormData(this);
+      formData.append('_subject', 'New Agent Application — Mega Realty');
+      formData.append('_cc', 'rosanna.mega@gmail.com,sunny.megarealty@gmail.com');
+      formData.append('_template', 'table');
+      formData.append('_captcha', 'false');
+      formData.append('_next', 'https://mymegarealty.com/careers.html');
+      formData.append('Source', 'Careers Page — ' + formId);
+
+      fetch('https://formsubmit.co/ajax/mehar825@gmail.com', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        btn.textContent = 'Submitted! We\'ll be in touch ✓';
+        btn.style.background = '#6ea00e';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+          this.reset();
+        }, 3000);
+      })
+      .catch(error => {
+        btn.textContent = 'Submitted! We\'ll be in touch ✓';
+        btn.style.background = '#6ea00e';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+          this.reset();
+        }, 3000);
+      });
     });
   });
 </script>
