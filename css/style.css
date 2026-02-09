@@ -800,7 +800,7 @@ a { text-decoration: none; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .why-mega-content .section-label { color: var(--green); }
@@ -864,6 +864,10 @@ a { text-decoration: none; }
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .agent-cta-card::before {
