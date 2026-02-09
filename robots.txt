@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /navbar-compare.html
+
+Sitemap: https://mymegarealty.com/sitemap.xml
