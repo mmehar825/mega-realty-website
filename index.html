@@ -28,24 +28,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* Hero Search — inline for guaranteed loading */
-.hero-search{max-width:620px;margin:0 auto 28px;position:relative}
-.hero-search-bar{display:flex;align-items:center;background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.2);border-radius:16px;padding:6px 6px 6px 20px;backdrop-filter:blur(12px);transition:all .3s ease}
-.hero-search-bar:focus-within{border-color:#8ac711;background:rgba(255,255,255,0.18);box-shadow:0 8px 32px rgba(138,199,17,0.15)}
-.hero-search-icon{color:rgba(255,255,255,0.4);flex-shrink:0;margin-right:12px}
-.hero-search-bar input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:16px;font-family:'DM Sans',sans-serif;padding:12px 0;min-width:0}
-.hero-search-bar input::placeholder{color:rgba(255,255,255,0.4)}
-.hero-search-btn{display:flex;align-items:center;gap:8px;padding:14px 28px;background:#8ac711;color:#1a1917;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .3s ease;white-space:nowrap}
-.hero-search-btn:hover{background:#ffff00;transform:translateY(-1px);box-shadow:0 4px 16px rgba(138,199,17,0.3)}
-.hero-links{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
-.hero-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.5);font-size:14px;font-weight:500;transition:all .3s ease;text-decoration:none}
-.hero-link:hover{color:#8ac711}
+/* Hero Search */
+.hero-search-wrap{max-width:720px;margin:0 auto 32px;position:relative}
+.hero-search-row{display:flex;align-items:center;background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.2);border-radius:16px;padding:6px 6px 6px 20px;backdrop-filter:blur(12px);transition:all .3s ease}
+.hero-search-row:focus-within{border-color:#8ac711;background:rgba(255,255,255,0.18);box-shadow:0 8px 32px rgba(138,199,17,0.15)}
+.hero-search-loc-icon{flex-shrink:0;margin-right:12px}
+.hero-search-row input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:16px;font-family:'DM Sans',sans-serif;padding:12px 0;min-width:0}
+.hero-search-row input::placeholder{color:rgba(255,255,255,0.4)}
+.hero-search-btn-desktop,.hero-search-btn-mobile{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;background:#8ac711;color:#1a1917;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .3s ease;white-space:nowrap;flex-shrink:0}
+.hero-search-btn-desktop:hover,.hero-search-btn-mobile:hover{background:#ffff00;transform:translateY(-1px);box-shadow:0 4px 16px rgba(138,199,17,0.3)}
+.hero-search-btn-mobile{display:none;width:100%;margin-top:12px}
 .pac-container{border-radius:12px!important;border:none!important;box-shadow:0 12px 40px rgba(0,0,0,0.25)!important;margin-top:8px!important;font-family:'DM Sans',sans-serif!important;z-index:10000!important}
 .pac-item{padding:12px 20px!important;font-size:15px!important;cursor:pointer!important;border-top:1px solid #f0efec!important;line-height:1.4!important}
 .pac-item:first-child{border-top:none!important}
 .pac-item:hover{background:#f8f7f4!important}
 .pac-item-query{font-weight:600!important;color:#2d2b28!important}
-@media(max-width:768px){.hero-search{max-width:100%;padding:0 4px}.hero-search-bar{flex-direction:column;gap:8px;padding:8px;border-radius:14px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25)}.hero-search-bar input{width:100%;text-align:center;padding:14px 12px;font-size:15px;background:rgba(255,255,255,0.1);border-radius:10px}.hero-search-bar input::placeholder{text-align:center}.hero-search-icon{display:none}.hero-search-btn{width:100%;justify-content:center;padding:14px 20px;font-size:15px;border-radius:10px}.hero-search-btn span{display:inline}.hero-links{gap:10px;flex-direction:column}}
+@media(max-width:768px){
+  .hero-search-row{padding:12px 16px;border-radius:14px}
+  .hero-search-row input{font-size:15px;padding:8px 0}
+  .hero-search-loc-icon{margin-right:8px}
+  .hero-search-btn-desktop{display:none}
+  .hero-search-btn-mobile{display:flex;border-radius:14px;padding:16px 20px;font-size:16px}
+}
 </style>
 
 <!-- Open Graph -->
@@ -134,15 +138,19 @@
     <h1>What's Your Home <em>Worth?</em></h1>
     <p class="hero-sub">Get a free, instant home value estimate powered by real market data across all of Pennsylvania.</p>
     
-    <div style="max-width:720px;margin:0 auto 32px;position:relative">
-      <div style="display:flex;align-items:center;background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.2);border-radius:16px;padding:6px 6px 6px 20px;backdrop-filter:blur(12px);transition:all .3s ease" id="searchBar">
-        <svg width="22" height="22" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-right:12px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <input type="text" id="hero-address" placeholder="Enter your property address..." autocomplete="off" style="flex:1;background:none;border:none;outline:none;color:#fff;font-size:16px;font-family:'DM Sans',sans-serif;padding:12px 0;min-width:0">
-        <button onclick="goToValuation()" style="display:flex;align-items:center;gap:8px;padding:14px 28px;background:#8ac711;color:#1a1917;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0">
+    <div class="hero-search-wrap" style="max-width:720px;margin:0 auto 32px;position:relative">
+      <div class="hero-search-row" id="searchBar">
+        <svg class="hero-search-loc-icon" width="22" height="22" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <input type="text" id="hero-address" placeholder="Enter your property address..." autocomplete="off">
+        <button onclick="goToValuation()" class="hero-search-btn-desktop">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           Get Estimate
         </button>
       </div>
+      <button onclick="goToValuation()" class="hero-search-btn-mobile">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        Get Estimate
+      </button>
     </div>
 
     <div style="display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:8px">

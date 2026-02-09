@@ -96,10 +96,15 @@ function toggleMobileMenu() {
     const dropdown = li.querySelector('.nav-dropdown');
     if (dropdown) {
       Object.assign(dropdown.style, {
+        position: 'static',
+        opacity: '1',
+        visibility: 'visible',
+        transform: 'none',
         maxHeight: '0', overflow: 'hidden',
         transition: 'max-height 0.35s cubic-bezier(0.16,1,0.3,1)',
         background: 'rgba(0,0,0,0.02)', borderRadius: '12px',
-        margin: '4px 0'
+        margin: '4px 0', padding: '0',
+        boxShadow: 'none', minWidth: '100%'
       });
       dropdown.querySelectorAll('a').forEach(da => {
         Object.assign(da.style, {
