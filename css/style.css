@@ -691,6 +691,14 @@ a { text-decoration: none; }
   font-size: 28px;
 }
 
+.service-card:nth-child(even) .service-icon {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+}
+
+.service-card:nth-child(even)::after {
+  background: var(--green);
+}
+
 .service-card h3 {
   font-family: var(--font-heading);
   font-size: 22px;
