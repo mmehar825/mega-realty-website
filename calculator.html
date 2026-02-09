@@ -28,44 +28,80 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* ========== CALCULATOR FUNNEL PAGE ========== */
 .calc-page {
   min-height: 100vh;
-  background: var(--black);
+  background: #f5f0ea;
   display: flex;
   flex-direction: column;
 }
 
 .calc-top-bar {
+  background: white;
   padding: 16px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 3px solid var(--green);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
-.calc-top-bar a {
-  color: rgba(255,255,255,0.4);
-  font-size: 13px;
+.calc-top-bar .logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
 }
 
-.calc-top-bar a:hover { color: var(--white); }
+.calc-top-bar .logo-link img { height: 44px; }
+
+.calc-top-bar .logo-text {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--burgundy);
+}
+
+.calc-top-bar .back-link {
+  color: var(--burgundy);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 2px solid var(--burgundy);
+  transition: all 0.2s ease;
+}
+
+.calc-top-bar .back-link:hover {
+  background: var(--burgundy);
+  color: white;
+}
+
+.calc-banner {
+  background: var(--green);
+  padding: 12px 32px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
 
 .calc-main {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px 24px;
+  padding: 56px 24px;
 }
 
 .calc-container {
-  max-width: 960px;
+  max-width: 1020px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 56px;
   align-items: center;
 }
 
@@ -73,7 +109,7 @@
   font-family: var(--font-heading);
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 900;
-  color: var(--white);
+  color: var(--burgundy);
   line-height: 1.1;
   margin-bottom: 16px;
 }
@@ -85,7 +121,7 @@
 
 .calc-left .subtext {
   font-size: 17px;
-  color: rgba(255,255,255,0.5);
+  color: #666;
   line-height: 1.65;
   margin-bottom: 32px;
 }
@@ -107,62 +143,59 @@
   height: 36px;
   min-width: 36px;
   border-radius: 10px;
-  background: rgba(138, 199, 17, 0.12);
+  background: var(--green);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--green);
+  color: white;
   font-weight: 800;
   font-size: 14px;
 }
 
 .calc-sp-text {
   font-size: 15px;
-  color: rgba(255,255,255,0.65);
+  color: #666;
   line-height: 1.5;
 }
 
-.calc-sp-text strong {
-  color: var(--white);
-}
+.calc-sp-text strong { color: #333; }
 
-/* CALCULATOR CARD */
 .calc-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: white;
+  border: 2px solid rgba(0,0,0,0.06);
   border-radius: 24px;
-  padding: 36px;
+  padding: 40px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
 }
 
 .calc-card h2 {
   font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--white);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--burgundy);
   text-align: center;
   margin-bottom: 28px;
 }
 
-.calc-field {
-  margin-bottom: 20px;
-}
+.calc-field { margin-bottom: 20px; }
 
 .calc-field label {
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: rgba(255,255,255,0.5);
+  color: #888;
   margin-bottom: 6px;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .calc-field input, .calc-field select {
   width: 100%;
   padding: 14px 16px;
   border-radius: 12px;
-  border: 2px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.04);
-  color: var(--white);
+  border: 2px solid #e5e0da;
+  background: #faf8f5;
+  color: #333;
   font-size: 16px;
   font-family: var(--font-body);
   outline: none;
@@ -171,11 +204,12 @@
 
 .calc-field input:focus, .calc-field select:focus {
   border-color: var(--green);
+  background: white;
 }
 
 .calc-field select option {
-  background: var(--black);
-  color: var(--white);
+  background: white;
+  color: #333;
 }
 
 .calc-btn {
@@ -184,7 +218,7 @@
   border: none;
   border-radius: 12px;
   background: var(--green);
-  color: var(--black);
+  color: white;
   font-size: 16px;
   font-weight: 700;
   font-family: var(--font-body);
@@ -196,14 +230,14 @@
 .calc-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(138, 199, 17, 0.3);
+  background: #7db610;
 }
 
-/* RESULTS */
 .calc-results {
   display: none;
   margin-top: 28px;
   padding-top: 28px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 2px solid #f0ebe5;
 }
 
 .calc-results.show { display: block; }
@@ -213,28 +247,28 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid #f0ebe5;
 }
 
 .result-label {
   font-size: 14px;
-  color: rgba(255,255,255,0.5);
+  color: #888;
 }
 
 .result-value {
   font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 700;
-  color: var(--white);
+  color: #333;
 }
 
 .result-row.highlight {
   padding: 16px;
   margin: 16px -16px 0;
-  background: rgba(138, 199, 17, 0.1);
+  background: rgba(138, 199, 17, 0.08);
   border-radius: 12px;
-  border: 1px solid rgba(138, 199, 17, 0.2);
-  border-bottom: 1px solid rgba(138, 199, 17, 0.2);
+  border: 2px solid rgba(138, 199, 17, 0.2);
+  border-bottom: 2px solid rgba(138, 199, 17, 0.2);
 }
 
 .result-row.highlight .result-label {
@@ -271,30 +305,51 @@
 .calc-note {
   text-align: center;
   font-size: 12px;
-  color: rgba(255,255,255,0.3);
+  color: #aaa;
   margin-top: 12px;
+}
+
+.first-year-badge {
+  display: inline-block;
+  background: var(--burgundy);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
   .calc-container { grid-template-columns: 1fr; gap: 32px; }
   .calc-left { text-align: center; }
   .calc-selling-points { align-items: center; }
-  .calc-main { padding: 100px 20px 40px; }
+  .calc-main { padding: 32px 20px; }
+  .calc-card { padding: 28px 24px; }
+  .calc-top-bar .logo-text { display: none; }
 }
 </style>
 </head>
 <body class="calc-page">
 
 <div class="calc-top-bar">
-  <a href="index.html"><img src="images/logo.png" alt="Mega Realty" style="height:28px;filter:brightness(0) invert(1);opacity:0.6"></a>
-  <a href="careers.html">← Back to Careers</a>
+  <a href="index.html" class="logo-link">
+    <img src="images/logo.png" alt="Mega Realty">
+    <span class="logo-text">Mega Realty</span>
+  </a>
+  <a href="careers.html" class="back-link">← Back to Careers</a>
 </div>
+
+<div class="calc-banner">✅ First year desk fee waived for new agents — $0/month for 12 months</div>
 
 <div class="calc-main">
   <div class="calc-container">
 
-    <!-- LEFT SIDE -->
     <div class="calc-left">
+      <div class="first-year-badge">100% Commission Brokerage</div>
       <h1>How much more would you make at <em>Mega?</em></h1>
       <p class="subtext">Most agents leave thousands on the table every year in commission splits. Plug in your numbers and see the difference.</p>
       
@@ -318,7 +373,6 @@
       </div>
     </div>
 
-    <!-- CALCULATOR CARD -->
     <div class="calc-card">
       <h2>Do The Math</h2>
 
@@ -367,7 +421,7 @@
           <span class="result-label">You'd earn more per year</span>
           <span class="result-value" id="r-diff">—</span>
         </div>
-        <a href="careers.html" class="calc-cta">Join Mega Realty — First Year Free →</a>
+        <a href="careers.html" class="calc-cta">Join Mega Realty — First Year Desk Fee Waived →</a>
         <div class="calc-note">No commitment needed. Let's just talk.</div>
       </div>
     </div>
@@ -398,6 +452,9 @@ function calculateSavings() {
   document.getElementById('r-diff').textContent = '+' + fmt(diff);
 
   document.getElementById('results').classList.add('show');
+  
+  // Fire Facebook Lead event
+  if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
 }
 </script>
 </body>
