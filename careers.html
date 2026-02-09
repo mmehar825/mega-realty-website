@@ -951,34 +951,51 @@
 
 <!-- FIRST YEAR FREE + REFERRAL PROGRAM -->
 <section style="padding:80px 24px;background:var(--gray-800)">
-  <div style="max-width:1000px;margin:0 auto;text-align:center">
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(138,199,17,0.12);border:1px solid rgba(138,199,17,0.3);padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;color:#8ac711;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px">Limited-Time Offer for New Agents</div>
-    <h2 style="font-family:var(--font-heading);font-size:clamp(32px,4vw,48px);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:20px">Your First Year Desk Fee Is<br><span style="color:#8ac711">Completely Waived.</span></h2>
-    <p style="font-size:18px;color:rgba(255,255,255,0.6);max-width:620px;margin:0 auto 20px;line-height:1.65">Join Mega Realty and pay <strong style="color:#fff">$0 in monthly desk fees</strong> for your entire first year. That's 12 months of keeping 100% of your commission with only a $550 transaction fee. After year one, it's just $100/month.</p>
-    <p style="font-size:18px;color:rgba(255,255,255,0.6);max-width:620px;margin:0 auto 48px;line-height:1.65">Plus — refer licensed agents who join Mega Realty, and <strong style="color:#fff">earn an additional free year for each referral</strong> once they start paying their desk fee. No cap.</p>
+  <div style="max-width:900px;margin:0 auto">
     
-    <div style="max-width:800px;margin:0 auto 48px">
-      <div style="background:rgba(138,199,17,0.1);border:2px solid #8ac711;border-radius:20px;padding:48px 40px;text-align:center;margin-bottom:24px">
-        <div style="font-family:var(--font-heading);font-size:clamp(56px,6vw,72px);font-weight:800;color:#8ac711;line-height:1">$0</div>
-        <div style="color:rgba(255,255,255,0.9);font-size:20px;font-weight:700;margin-top:8px">desk fees your entire first year</div>
-        <div style="color:rgba(255,255,255,0.4);font-size:15px;margin-top:4px">That's $1,200 you keep in your pocket vs. other brokerages</div>
+    <!-- Top: Split layout - big $0 on left, explanation on right -->
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:center;margin-bottom:64px">
+      <div style="text-align:center">
+        <div style="font-family:var(--font-heading);font-size:clamp(80px,10vw,120px);font-weight:800;color:#8ac711;line-height:1">$0</div>
+        <div style="font-size:18px;font-weight:700;color:rgba(255,255,255,0.9);margin-top:4px">desk fee — year one</div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:36px 24px;text-align:center">
-          <div style="font-family:var(--font-heading);font-size:36px;font-weight:800;color:#8ac711;margin-bottom:4px">$1,200</div>
-          <div style="color:rgba(255,255,255,0.8);font-size:15px;font-weight:600;margin-bottom:4px">saved per referral</div>
-          <div style="color:rgba(255,255,255,0.4);font-size:13px">Refer 1 agent = 1 more free year</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:36px 24px;text-align:center">
-          <div style="font-family:var(--font-heading);font-size:36px;font-weight:800;color:#8ac711;margin-bottom:4px">$3,600+</div>
-          <div style="color:rgba(255,255,255,0.8);font-size:15px;font-weight:600;margin-bottom:4px">saved with 3+ referrals</div>
-          <div style="color:rgba(255,255,255,0.4);font-size:13px">No cap on referral rewards</div>
-        </div>
+      <div>
+        <div style="display:inline-block;background:rgba(138,199,17,0.12);border:1px solid rgba(138,199,17,0.3);padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;color:#8ac711;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px">New Agent Offer</div>
+        <h2 style="font-family:var(--font-heading);font-size:clamp(28px,3.5vw,40px);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:16px">Your first year desk fee is completely waived.</h2>
+        <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:0">Keep 100% of your commission with only a $550 transaction fee per deal. After year one, the desk fee is just $100/month — still the lowest in the industry.</p>
       </div>
     </div>
 
-    <p style="color:rgba(255,255,255,0.4);font-size:14px;margin-bottom:32px">*Offer available to newly licensed agents and agents transferring from another brokerage. Referral free year kicks in once the referred agent begins paying their desk fee. $550 per-transaction fee still applies.</p>
-    <a href="#heroForm" onclick="document.getElementById('heroName').focus();window.scrollTo({top:0,behavior:'smooth'});return false;" style="display:inline-flex;align-items:center;gap:8px;padding:18px 40px;background:#8ac711;color:#1a1917;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;border-radius:12px;text-decoration:none">Join Mega Realty Today →</a>
+    <!-- Divider -->
+    <div style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:64px"></div>
+
+    <!-- Bottom: Referral program -->
+    <div style="text-align:center;margin-bottom:32px">
+      <h3 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--white);margin-bottom:12px">Refer Agents. <span style="color:#8ac711">Extend Your Free Years.</span></h3>
+      <p style="font-size:16px;color:rgba(255,255,255,0.5);max-width:560px;margin:0 auto">For every licensed agent you refer who joins Mega Realty, earn an additional year with $0 desk fees once they start paying theirs.</p>
+    </div>
+    
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px">
+      <div style="text-align:center">
+        <div style="font-family:var(--font-heading);font-size:36px;font-weight:800;color:#8ac711">1 referral</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:14px">1 free year · save $1,200</div>
+      </div>
+      <div style="width:1px;background:rgba(255,255,255,0.1);align-self:stretch"></div>
+      <div style="text-align:center">
+        <div style="font-family:var(--font-heading);font-size:36px;font-weight:800;color:#8ac711">3 referrals</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:14px">3 free years · save $3,600</div>
+      </div>
+      <div style="width:1px;background:rgba(255,255,255,0.1);align-self:stretch"></div>
+      <div style="text-align:center">
+        <div style="font-family:var(--font-heading);font-size:36px;font-weight:800;color:#8ac711">no cap</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:14px">keep going, keep saving</div>
+      </div>
+    </div>
+
+    <div style="text-align:center">
+      <p style="color:rgba(255,255,255,0.35);font-size:13px;margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto">*Available to newly licensed agents and agents transferring from another brokerage. Referral free year kicks in once the referred agent begins paying their desk fee. $550 per-transaction fee still applies.</p>
+      <a href="#heroForm" onclick="document.getElementById('heroName').focus();window.scrollTo({top:0,behavior:'smooth'});return false;" style="display:inline-flex;align-items:center;gap:8px;padding:18px 40px;background:#8ac711;color:#1a1917;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;border-radius:12px;text-decoration:none">Join Mega Realty Today →</a>
+    </div>
   </div>
 </section>
 
