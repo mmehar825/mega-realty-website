@@ -494,8 +494,9 @@
 <script>
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    // Fire Facebook Lead event
+    if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
     const btn = this.querySelector('.form-submit');
-    btn.textContent = 'Message Sent ✓';
     btn.style.background = 'var(--green)';
     btn.style.color = 'var(--black)';
     setTimeout(() => {

@@ -1257,6 +1257,8 @@
   ['heroForm', 'bottomForm'].forEach(formId => {
     document.getElementById(formId).addEventListener('submit', function(e) {
       e.preventDefault();
+      // Fire Facebook Lead event
+      if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
       const btn = this.querySelector('.form-submit');
       const originalText = btn.textContent;
       btn.textContent = 'Submitted! We\'ll be in touch ✓';
