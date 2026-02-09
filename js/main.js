@@ -14,8 +14,10 @@ window.addEventListener('scroll', () => {
 function toggleMobileMenu() {
   const navLeft = document.querySelector('.nav-left');
   const navRight = document.querySelector('.nav-right');
+  const toggle = document.querySelector('.mobile-toggle');
   if (navLeft) navLeft.classList.toggle('open');
   if (navRight) navRight.classList.toggle('open');
+  if (toggle) toggle.classList.toggle('active');
 }
 
 // Mobile dropdown toggle
