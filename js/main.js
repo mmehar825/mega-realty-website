@@ -15,9 +15,27 @@ function toggleMobileMenu() {
   const navLeft = document.querySelector('.nav-left');
   const navRight = document.querySelector('.nav-right');
   const toggle = document.querySelector('.mobile-toggle');
+  const isOpen = navLeft && navLeft.classList.contains('open');
+  
   if (navLeft) navLeft.classList.toggle('open');
   if (navRight) navRight.classList.toggle('open');
   if (toggle) toggle.classList.toggle('active');
+  
+  // Toggle hamburger to X
+  if (toggle) {
+    const spans = toggle.querySelectorAll('span');
+    if (!isOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+      document.body.style.overflow = 'hidden';
+    } else {
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
+      document.body.style.overflow = '';
+    }
+  }
 }
 
 // Mobile dropdown toggle
