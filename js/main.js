@@ -16,11 +16,15 @@ function toggleMobileMenu() {
   const toggle = document.querySelector('.mobile-toggle');
   
   if (overlay) {
-    // Close menu
-    overlay.remove();
+    // Animate out
+    overlay.style.opacity = '0';
+    overlay.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      if (overlay.parentNode) overlay.remove();
+    }, 250);
     document.body.style.overflow = '';
     if (toggle) {
-      toggle.querySelectorAll('span').forEach((s,i) => {
+      toggle.querySelectorAll('span').forEach(s => {
         s.style.transform = 'none';
         s.style.opacity = '1';
       });
@@ -28,67 +32,148 @@ function toggleMobileMenu() {
     return;
   }
   
-  // Build menu from nav-left and nav-right
+  // Build overlay
   overlay = document.createElement('div');
   overlay.id = 'mobileMenuOverlay';
-  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100vh;background:rgba(255,255,255,0.99);backdrop-filter:blur(20px);z-index:1001;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:20px 32px;overflow-y:auto;';
+  Object.assign(overlay.style, {
+    position: 'fixed', top: '0', left: '0', right: '0', bottom: '0',
+    width: '100%', height: '100vh',
+    background: 'rgba(255,255,255,0.99)',
+    backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
+    zIndex: '1001',
+    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
+    paddingTop: '100px', paddingBottom: '40px',
+    paddingLeft: '32px', paddingRight: '32px',
+    overflowY: 'auto',
+    opacity: '0', transform: 'scale(0.98)',
+    transition: 'opacity 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1)'
+  });
   
-  // Gather all menu items
+  // Gather items from both nav lists
   const navLeft = document.querySelector('.nav-left');
   const navRight = document.querySelector('.nav-right');
-  const items = [];
-  
-  if (navLeft) {
-    navLeft.querySelectorAll(':scope > li').forEach(li => {
-      items.push(li.cloneNode(true));
-    });
-  }
-  if (navRight) {
-    navRight.querySelectorAll(':scope > li').forEach(li => {
-      items.push(li.cloneNode(true));
-    });
-  }
+  const allItems = [];
+  [navLeft, navRight].forEach(nav => {
+    if (!nav) return;
+    nav.querySelectorAll(':scope > li').forEach(li => allItems.push(li.cloneNode(true)));
+  });
   
   const list = document.createElement('ul');
-  list.style.cssText = 'list-style:none;padding:0;margin:0;width:100%;text-align:center;';
+  Object.assign(list.style, {
+    listStyle: 'none', padding: '0', margin: '0', width: '100%', textAlign: 'center'
+  });
   
-  items.forEach(li => {
-    li.style.cssText = 'width:100%;text-align:center;';
+  let openDropdown = null;
+  
+  allItems.forEach((li, idx) => {
+    Object.assign(li.style, {
+      width: '100%', textAlign: 'center',
+      opacity: '0', transform: 'translateY(12px)',
+      transition: `opacity 0.4s cubic-bezier(0.16,1,0.3,1) ${idx * 0.05}s, transform 0.4s cubic-bezier(0.16,1,0.3,1) ${idx * 0.05}s`
+    });
+    
     const a = li.querySelector(':scope > a');
     if (a) {
       if (a.classList.contains('nav-cta')) {
-        a.style.cssText = 'display:block;padding:16px 32px;font-size:18px;font-weight:700;background:var(--burgundy);color:white;border-radius:12px;text-decoration:none;margin-top:16px;';
+        Object.assign(a.style, {
+          display: 'block', padding: '16px 32px', fontSize: '18px', fontWeight: '700',
+          background: '#6f1e1c', color: 'white', borderRadius: '12px',
+          textDecoration: 'none', marginTop: '20px',
+          transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+        });
+        a.addEventListener('touchstart', () => { a.style.transform = 'scale(0.97)'; });
+        a.addEventListener('touchend', () => { a.style.transform = 'scale(1)'; });
       } else {
-        a.style.cssText = 'display:block;padding:14px 8px;font-size:20px;font-weight:600;color:#333;text-decoration:none;';
-      }
-    }
-    // Handle dropdowns
-    const dropdown = li.querySelector('.nav-dropdown');
-    if (dropdown) {
-      dropdown.style.cssText = 'display:none;background:rgba(0,0,0,0.03);border-radius:8px;padding:4px;margin:0 0 4px;';
-      dropdown.querySelectorAll('a').forEach(da => {
-        da.style.cssText = 'display:block;padding:12px 16px;color:#666;font-size:17px;text-decoration:none;text-align:center;';
-      });
-      const toggle = li.querySelector('[data-dropdown]');
-      if (toggle) {
-        toggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        Object.assign(a.style, {
+          display: 'block', padding: '16px 8px', fontSize: '22px', fontWeight: '700',
+          color: '#333', textDecoration: 'none',
+          transition: 'color 0.2s ease'
         });
       }
     }
+    
+    // Dropdown accordion
+    const dropdown = li.querySelector('.nav-dropdown');
+    if (dropdown) {
+      Object.assign(dropdown.style, {
+        maxHeight: '0', overflow: 'hidden',
+        transition: 'max-height 0.35s cubic-bezier(0.16,1,0.3,1)',
+        background: 'rgba(0,0,0,0.02)', borderRadius: '12px',
+        margin: '4px 0'
+      });
+      dropdown.querySelectorAll('a').forEach(da => {
+        Object.assign(da.style, {
+          display: 'block', padding: '12px 16px', color: '#666',
+          fontSize: '17px', textDecoration: 'none', textAlign: 'center',
+          transition: 'color 0.2s ease'
+        });
+      });
+      
+      const dropToggle = li.querySelector('[data-dropdown]');
+      if (dropToggle) {
+        dropToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          // Close any other open dropdown
+          if (openDropdown && openDropdown !== dropdown) {
+            openDropdown.style.maxHeight = '0';
+            const prevArrow = openDropdown.parentElement.querySelector('.arrow');
+            if (prevArrow) prevArrow.style.transform = 'rotate(0deg)';
+          }
+          
+          const isOpen = dropdown.style.maxHeight !== '0px' && dropdown.style.maxHeight !== '0';
+          if (isOpen) {
+            dropdown.style.maxHeight = '0';
+            openDropdown = null;
+          } else {
+            dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+            openDropdown = dropdown;
+          }
+          
+          // Rotate arrow
+          const arrow = dropToggle.querySelector('.arrow');
+          if (arrow) {
+            arrow.style.transition = 'transform 0.3s cubic-bezier(0.16,1,0.3,1)';
+            arrow.style.display = 'inline-block';
+            arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+          }
+        });
+      }
+    }
+    
+    // Close menu on link click (non-dropdown)
+    if (a && !li.querySelector('.nav-dropdown')) {
+      a.addEventListener('click', () => toggleMobileMenu());
+    }
+    // Also close on dropdown child link click
+    if (dropdown) {
+      dropdown.querySelectorAll('a').forEach(da => {
+        da.addEventListener('click', () => toggleMobileMenu());
+      });
+    }
+    
     list.appendChild(li);
   });
   
   overlay.appendChild(list);
   
-  // Close on click outside
+  // Close on background tap
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) toggleMobileMenu();
   });
   
   document.body.appendChild(overlay);
   document.body.style.overflow = 'hidden';
+  
+  // Animate in
+  requestAnimationFrame(() => {
+    overlay.style.opacity = '1';
+    overlay.style.transform = 'scale(1)';
+    // Stagger items
+    list.querySelectorAll(':scope > li').forEach(li => {
+      li.style.opacity = '1';
+      li.style.transform = 'translateY(0)';
+    });
+  });
   
   // Animate hamburger to X
   if (toggle) {
