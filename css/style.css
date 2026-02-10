@@ -310,7 +310,7 @@ a { text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--black);
+  background: linear-gradient(135deg, #6f1e1c 0%, #3d1110 35%, #1a1917 70%, #2a1f0f 100%);
   overflow: hidden;
 }
 
