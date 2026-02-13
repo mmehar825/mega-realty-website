@@ -1381,7 +1381,6 @@
 <script>
 // Show referral popup after 8 seconds, only once per session
 function showReferralPopup() {
-  if (sessionStorage.getItem('referralPopupClosed')) return;
   const popup = document.getElementById('referralPopup');
   popup.style.display = 'block';
   requestAnimationFrame(() => {
@@ -1400,7 +1399,7 @@ function closeReferralPopup() {
   setTimeout(() => { popup.style.display = 'none'; }, 500);
 }
 
-setTimeout(showReferralPopup, 4000);
+setTimeout(showReferralPopup, 500);
 </script>
 </body>
 </html>
