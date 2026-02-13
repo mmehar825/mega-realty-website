@@ -448,10 +448,12 @@ function logout() {
   document.getElementById('portalPassword').value = '';
 }
 
-// Auto-login if already authenticated this session
-if (sessionStorage.getItem('portalAuth') === 'true') {
+// Auto-login if already authenticated this session or via URL key
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('key') === PORTAL_CODE || sessionStorage.getItem('portalAuth') === 'true') {
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('portalDashboard').classList.add('active');
+  sessionStorage.setItem('portalAuth', 'true');
 }
 </script>
 </body>
