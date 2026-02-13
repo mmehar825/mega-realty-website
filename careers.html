@@ -815,7 +815,7 @@
   <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-right">
     <li><a href="property-management.html">Management</a></li>
-    <li><a href="#" data-dropdown>Company <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="agents.html">Our Agents</a><a href="contact.html">Contact</a><a href="franchise.html">Franchise</a></div></li>
+    <li><a href="#" data-dropdown>Company <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="agents.html">Our Agents</a><a href="contact.html">Contact</a><a href="franchise.html">Franchise</a><a href="agent-portal.html">Agent Portal</a></div></li>
     <li><a href="careers.html" class="nav-cta">Join Us →</a></li>
   </ul>
 </nav>
@@ -1272,6 +1272,7 @@
       formData.append('_subject', 'New Agent Application — Mega Realty');
       formData.append('_cc', 'rosanna.mega@gmail.com,sunny.megarealty@gmail.com');
       formData.append('_template', 'table');
+      formData.append('_autoresponse', 'Thanks for your interest in Mega Realty! We\'re excited you\'re considering joining our team.\n\nOne of our brokers will personally reach out to you within 24 hours to answer any questions.\n\nHere\'s what makes Mega Realty different:\n✅ Keep 100% of every commission check\n✅ $0 desk fee your entire first year\n✅ Only $550 flat fee per transaction\n✅ Full broker support and mentorship\n\nYour next steps:\n1. We\'ll call you within 24 hours\n2. We\'ll guide you through the license transfer\n3. Sign the onboarding paperwork\n4. Start closing deals and keeping 100% commission\n\n📍 Agent Portal: https://mymegarealty.com/agent-portal.html\n📍 Learn more: https://mymegarealty.com/careers.html\n\nMega Realty LLC\n1925 Old York Rd, Abington, PA 19001\n215-947-0575 | 267-901-8331\nmymegarealty.com');
       formData.append('_captcha', 'false');
       formData.append('_next', 'https://mymegarealty.com/careers.html');
       formData.append('Source', 'Careers Page — ' + formId);
@@ -1303,6 +1304,103 @@
       });
     });
   });
+</script>
+
+<!-- REFERRAL POPUP -->
+<div id="referralPopup" style="
+  position:fixed;bottom:24px;right:24px;z-index:999;
+  width:360px;max-width:calc(100vw - 48px);
+  background:#1a1917;border-radius:20px;
+  padding:28px 24px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  border:1px solid rgba(138,199,17,0.2);
+  transform:translateY(120%);opacity:0;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
+  display:none;
+">
+  <!-- Close button -->
+  <button onclick="closeReferralPopup()" style="
+    position:absolute;top:12px;right:12px;
+    background:rgba(255,255,255,0.1);border:none;
+    width:28px;height:28px;border-radius:50%;
+    color:rgba(255,255,255,0.4);font-size:16px;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:all 0.2s ease;
+  " onmouseover="this.style.background='rgba(255,255,255,0.2)';this.style.color='white'" 
+     onmouseout="this.style.background='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.4)'">✕</button>
+
+  <!-- Green badge -->
+  <div style="
+    display:inline-block;background:rgba(138,199,17,0.15);
+    padding:6px 14px;border-radius:50px;
+    font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
+    color:#8ac711;letter-spacing:1px;text-transform:uppercase;
+    margin-bottom:14px;
+  ">🎁 Agent Referral Program</div>
+
+  <!-- Heading -->
+  <div style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:white;line-height:1.2;margin-bottom:6px;">
+    Refer Agents.<br><span style="color:#8ac711;">Extend Your Free Years.</span>
+  </div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:18px;line-height:1.5;">
+    For every agent you refer who joins, earn another year with $0 desk fees.
+  </div>
+
+  <!-- Stats row -->
+  <div style="display:flex;justify-content:space-between;margin-bottom:18px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div style="text-align:center;flex:1;">
+      <div style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:#8ac711;">1</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);">referral = 1 free year</div>
+    </div>
+    <div style="text-align:center;flex:1;border-left:1px solid rgba(255,255,255,0.08);border-right:1px solid rgba(255,255,255,0.08);">
+      <div style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:#8ac711;">3</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);">referrals = 3 free years</div>
+    </div>
+    <div style="text-align:center;flex:1;">
+      <div style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:#8ac711;">∞</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);">no cap on savings</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <a href="#heroForm" onclick="closeReferralPopup();document.getElementById('heroName').focus();window.scrollTo({top:0,behavior:'smooth'});return false;" style="
+    display:block;text-align:center;
+    padding:14px;background:#8ac711;color:#1a1917;
+    font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;
+    border-radius:12px;text-decoration:none;
+    transition:background 0.2s ease;
+  " onmouseover="this.style.background='#7bb80f'" onmouseout="this.style.background='#8ac711'">
+    Join Mega Realty Today →
+  </a>
+
+  <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);text-align:center;margin-top:10px;">
+    *$550 per-transaction fee still applies
+  </div>
+</div>
+
+<script>
+// Show referral popup after 8 seconds, only once per session
+function showReferralPopup() {
+  if (sessionStorage.getItem('referralPopupClosed')) return;
+  const popup = document.getElementById('referralPopup');
+  popup.style.display = 'block';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      popup.style.transform = 'translateY(0)';
+      popup.style.opacity = '1';
+    });
+  });
+}
+
+function closeReferralPopup() {
+  const popup = document.getElementById('referralPopup');
+  popup.style.transform = 'translateY(120%)';
+  popup.style.opacity = '0';
+  sessionStorage.setItem('referralPopupClosed', 'true');
+  setTimeout(() => { popup.style.display = 'none'; }, 500);
+}
+
+setTimeout(showReferralPopup, 8000);
 </script>
 </body>
 </html>
