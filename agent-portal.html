@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8NPQYC1PW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-L8NPQYC1PW');</script>
+<!-- Facebook Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1193343782836532');fbq('track','PageView');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Agent Portal | Mega Realty</title>
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Login Screen */
+  .login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6f1e1c 0%, #3d1110 50%, #1a1917 100%);
+    padding: 24px;
+  }
+  .login-card {
+    background: white;
+    border-radius: 24px;
+    padding: 48px 40px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+  }
+  .login-card img { height: 72px; margin-bottom: 24px; }
+  .login-card h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px; font-weight: 800; color: #6f1e1c;
+    margin: 0 0 8px;
+  }
+  .login-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; color: #888; margin: 0 0 28px;
+  }
+  .login-input {
+    width: 100%; padding: 16px 20px;
+    border: 2px solid #e5e0da; border-radius: 12px;
+    font-family: 'DM Sans', sans-serif; font-size: 16px;
+    outline: none; transition: border-color 0.2s ease;
+    text-align: center; letter-spacing: 2px;
+  }
+  .login-input:focus { border-color: #8ac711; }
+  .login-input::placeholder { letter-spacing: 0; }
+  .login-btn {
+    width: 100%; padding: 16px;
+    background: #8ac711; color: #1a1917;
+    border: none; border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px; font-weight: 700;
+    cursor: pointer; margin-top: 16px;
+    transition: background 0.2s ease;
+  }
+  .login-btn:hover { background: #7bb80f; }
+  .login-error {
+    color: #c44; font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 12px; display: none;
+  }
+
+  /* Portal Dashboard */
+  .portal { display: none; }
+  .portal.active { display: block; }
+  .portal-hero {
+    background: linear-gradient(135deg, #6f1e1c 0%, #3d1110 100%);
+    padding: 120px 24px 60px;
+    text-align: center;
+  }
+  .portal-hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800; color: white; margin: 0 0 8px;
+  }
+  .portal-hero p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px; color: rgba(255,255,255,0.5);
+  }
+
+  .portal-content {
+    max-width: 900px;
+    margin: -40px auto 0;
+    padding: 0 24px 80px;
+    position: relative; z-index: 2;
+  }
+
+  .portal-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+  }
+  .portal-card h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px; font-weight: 800; color: #6f1e1c;
+    margin: 0 0 8px;
+  }
+  .portal-card .card-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; color: #888; margin: 0 0 24px;
+  }
+
+  /* Document list */
+  .doc-list { list-style: none; padding: 0; margin: 0; }
+  .doc-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid #f0ebe5;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+  }
+  .doc-item:hover { border-color: #8ac711; background: #fafaf7; }
+  .doc-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: #f5f0ea; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .doc-info { flex: 1; }
+  .doc-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 700; color: #333;
+  }
+  .doc-meta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: #999; margin-top: 2px;
+  }
+  .doc-download {
+    padding: 8px 16px;
+    background: #f5f0ea; color: #6f1e1c;
+    border-radius: 8px; text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 700;
+    transition: all 0.2s ease;
+  }
+  .doc-download:hover { background: #8ac711; color: white; }
+
+  /* Quick links grid */
+  .quick-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .quick-link {
+    display: flex; align-items: center; gap: 12px;
+    padding: 20px;
+    background: #f8f6f2; border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .quick-link:hover { background: #f0ebe5; transform: translateY(-2px); }
+  .quick-link-icon {
+    width: 40px; height: 40px;
+    background: #8ac711; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: white;
+  }
+  .quick-link-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 700; color: #333;
+  }
+
+  /* Referral card */
+  .referral-card {
+    background: #1a1917 !important;
+    text-align: center;
+  }
+  .referral-card h2 { color: white !important; }
+  .referral-card .card-desc { color: rgba(255,255,255,0.5) !important; }
+  .ref-stats {
+    display: flex; justify-content: center; gap: 40px;
+    flex-wrap: wrap; margin: 24px 0;
+  }
+  .ref-stat-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px; font-weight: 800; color: #8ac711;
+  }
+  .ref-stat-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: rgba(255,255,255,0.4);
+  }
+
+  /* Logout */
+  .logout-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    margin-top: 16px;
+    transition: all 0.2s ease;
+  }
+  .logout-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+
+  @media (max-width: 768px) {
+    .login-card { padding: 36px 28px; }
+    .portal-card { padding: 28px 24px; }
+    .quick-links { grid-template-columns: 1fr; }
+    .ref-stats { gap: 24px; }
+    .portal-hero { padding: 100px 24px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <img src="images/logo.png" alt="Mega Realty">
+    <h1>Agent Portal</h1>
+    <p>Enter your access code to continue.</p>
+    <input type="password" id="portalPassword" class="login-input" placeholder="Access Code" onkeypress="if(event.key==='Enter')attemptLogin()">
+    <button class="login-btn" onclick="attemptLogin()">Enter Portal →</button>
+    <div class="login-error" id="loginError">Incorrect access code. Please try again.</div>
+  </div>
+</div>
+
+<!-- PORTAL DASHBOARD -->
+<div id="portalDashboard" class="portal">
+
+<nav class="navbar" id="navbar">
+  <ul class="nav-left">
+    <li><a href="#" data-dropdown>Buying <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="buyer-representation.html">Buyer Representation</a><a href="value-of-buyers-agent.html">Value of a Buyer's Agent</a><a href="moving-guide.html">Moving Guide</a><a href="mortgage-calculators.html">Mortgage Calculators</a></div></li>
+    <li><a href="#" data-dropdown>Selling <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="selling-your-home.html">Selling Your Home</a><a href="value-of-sellers-agent.html">Value of a Seller's Agent</a><a href="virtual-market-analysis.html">Virtual Market Analysis</a><a href="moving-checklist.html">Moving Checklist</a></div></li>
+    <li><a href="listings.html">Listings</a></li>
+  </ul>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-right">
+    <li><a href="property-management.html">Management</a></li>
+    <li><a href="#" data-dropdown>Company <span class="arrow">▾</span></a><div class="nav-dropdown"><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="agents.html">Our Agents</a><a href="contact.html">Contact</a><a href="franchise.html">Franchise</a></div></li>
+    <li><a href="careers.html" class="nav-cta">Join Us →</a></li>
+  </ul>
+</nav>
+
+<div class="portal-hero">
+  <h1>Welcome, Agent 👋</h1>
+  <p>Access your documents, resources, and tools below.</p>
+  <a href="#" class="logout-btn" onclick="logout();return false;">Sign Out</a>
+</div>
+
+<div class="portal-content">
+
+  <!-- QUICK LINKS -->
+  <div class="portal-card">
+    <h2>Quick Links</h2>
+    <p class="card-desc">Commonly used tools and resources.</p>
+    <div class="quick-links">
+      <a href="https://mymegarealty.com/virtual-market-analysis.html" class="quick-link">
+        <div class="quick-link-icon">📊</div>
+        <div class="quick-link-text">Virtual Market Analysis</div>
+      </a>
+      <a href="https://mymegarealty.com/calculator.html" class="quick-link">
+        <div class="quick-link-icon">🧮</div>
+        <div class="quick-link-text">Commission Calculator</div>
+      </a>
+      <a href="https://mymegarealty.com/listings.html" class="quick-link">
+        <div class="quick-link-icon">🏠</div>
+        <div class="quick-link-text">Property Listings</div>
+      </a>
+      <a href="https://mymegarealty.com/contact.html" class="quick-link">
+        <div class="quick-link-icon">📞</div>
+        <div class="quick-link-text">Contact the Office</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- DOCUMENTS -->
+  <div class="portal-card">
+    <h2>Agent Documents</h2>
+    <p class="card-desc">Download forms, agreements, and resources you need.</p>
+    <ul class="doc-list">
+      <li class="doc-item">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Independent Contractor Agreement</div>
+          <div class="doc-meta">PDF • Required for onboarding</div>
+        </div>
+        <a href="#" class="doc-download">Download</a>
+      </li>
+      <li class="doc-item">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Agent Onboarding Checklist</div>
+          <div class="doc-meta">PDF • Step-by-step guide</div>
+        </div>
+        <a href="#" class="doc-download">Download</a>
+      </li>
+      <li class="doc-item">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Buyer Representation Agreement</div>
+          <div class="doc-meta">PDF • Client-facing form</div>
+        </div>
+        <a href="#" class="doc-download">Download</a>
+      </li>
+      <li class="doc-item">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Listing Agreement Template</div>
+          <div class="doc-meta">PDF • Client-facing form</div>
+        </div>
+        <a href="#" class="doc-download">Download</a>
+      </li>
+      <li class="doc-item">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">Transaction Fee Invoice</div>
+          <div class="doc-meta">PDF • Submit with each closing</div>
+        </div>
+        <a href="#" class="doc-download">Download</a>
+      </li>
+      <li class="doc-item">
+        <div class="doc-icon">📄</div>
+        <div class="doc-info">
+          <div class="doc-name">E&O Insurance Certificate</div>
+          <div class="doc-meta">PDF • Coverage details</div>
+        </div>
+        <a href="#" class="doc-download">Download</a>
+      </li>
+    </ul>
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:#999;margin-top:16px;text-align:center;">
+      Need a document not listed here? Contact the office at 215-947-0575.
+    </p>
+  </div>
+
+  <!-- OFFICE INFO -->
+  <div class="portal-card">
+    <h2>Office Locations</h2>
+    <p class="card-desc">Stop by or give us a call anytime.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="background:#f8f6f2;border-radius:12px;padding:20px;">
+        <div style="font-family:'DM Sans',sans-serif;font-weight:700;color:#333;margin-bottom:4px;">Main Office — Abington</div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:14px;color:#888;line-height:1.6;">
+          1925 Old York Rd<br>Abington, PA 19001<br>📞 215-947-0575
+        </div>
+      </div>
+      <div style="background:#f8f6f2;border-radius:12px;padding:20px;">
+        <div style="font-family:'DM Sans',sans-serif;font-weight:700;color:#333;margin-bottom:4px;">Philadelphia Office</div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:14px;color:#888;line-height:1.6;">
+          1923 Welsh Rd<br>Philadelphia, PA 19115<br>📞 267-901-8331
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERRAL PROGRAM -->
+  <div class="portal-card referral-card">
+    <h2>Refer Agents. Extend Your Free Years.</h2>
+    <p class="card-desc">For every licensed agent you refer who joins Mega Realty, earn an additional year with $0 desk fees.</p>
+    <div class="ref-stats">
+      <div style="text-align:center">
+        <div class="ref-stat-num">1 referral</div>
+        <div class="ref-stat-label">1 free year · save $1,200</div>
+      </div>
+      <div style="text-align:center">
+        <div class="ref-stat-num">3 referrals</div>
+        <div class="ref-stat-label">3 free years · save $3,600</div>
+      </div>
+      <div style="text-align:center">
+        <div class="ref-stat-num">no cap</div>
+        <div class="ref-stat-label">keep going, keep saving</div>
+      </div>
+    </div>
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(255,255,255,0.35);margin-top:16px;">
+      *Referral free year kicks in once the referred agent begins paying their desk fee. $550 per-transaction fee still applies.
+    </p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mega Realty" class="nav-logo-img"></a>
+      <p>Philadelphia-based real estate firm serving all of Pennsylvania — buying, selling, leasing, and property management.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Buying</a>
+      <a href="#">Selling</a>
+      <a href="#">Leasing</a>
+      <a href="property-management.html">Property Management</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="agents.html">Our Agents</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:2159470575">215-947-0575</a>
+      <a href="tel:2679018331">267-901-8331</a>
+      <a href="mailto:info@mymegarealty.com">info@mymegarealty.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Mega Realty LLC. All rights reserved.</p>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+</div><!-- end portal -->
+
+<script src="js/main.js"></script>
+<script>
+const PORTAL_CODE = 'MegaAgent2026';
+
+function attemptLogin() {
+  const input = document.getElementById('portalPassword');
+  const error = document.getElementById('loginError');
+  if (input.value === PORTAL_CODE) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('portalDashboard').classList.add('active');
+    sessionStorage.setItem('portalAuth', 'true');
+  } else {
+    error.style.display = 'block';
+    input.style.borderColor = '#c44';
+    input.value = '';
+    setTimeout(() => {
+      error.style.display = 'none';
+      input.style.borderColor = '#e5e0da';
+    }, 3000);
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('portalAuth');
+  document.getElementById('portalDashboard').classList.remove('active');
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('portalPassword').value = '';
+}
+
+// Auto-login if already authenticated this session
+if (sessionStorage.getItem('portalAuth') === 'true') {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('portalDashboard').classList.add('active');
+}
+</script>
+</body>
+</html>
